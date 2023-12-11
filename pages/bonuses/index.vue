@@ -1,45 +1,24 @@
 <template>
-	<div>
-		<main class="bonuses_page">
-			<!--
+    <main class="bonuses_page">
 			<div class="container">
 				<AText tag="div" :attributes="titleSettings">{{ data.body.h1 }}</AText>
-			</div>
-			<div class="container">
-				<div class="bonus_category_container">
-					<div class="bonus_category_item" v-for="(item, index) in data.body.bonus_category" :key="index">
-						<BonusCategory :title="item.title" :link="item.permalink" :posts="item.posts" />
-					</div>
-				</div>
 			</div>
 			<div class="container content_container">
 				<Content :value="data.body.content" />
 			</div>
-			<div class="container">
-				<div class="faq_container">
-					<Faq :value="data.body.faq" />
-				</div>
-			</div>
-		-->
-		</main>
-	</div>
+    </main>
 </template>
 
 <script>
 import DAL_Page from '~/DAL/static_pages'
 import pageTemplate from '~/mixins/pageTemplate'
-import Faq from '~/components/faq'
-import BonusCategory from '~/components/bonus_category'
 import helper from '~/helpers/helpers'
 import config from '~/config'
 
 export default {
 	name: 'bonuses-page',
 	mixins: [pageTemplate],
-	components: {
-		Faq,
-		BonusCategory
-	},
+	components: {},
 	layout: 'default',
 	data: () => {
 		return {

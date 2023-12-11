@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import { BONUS_CATEGORY as NumberPostOnQuery } from '~/config/postLoader'
-import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
+import { BONUS as NumberPostOnQuery } from '~/config/postLoader'
+import BonusMainCard from '~/components/bonus_loop/cards/main'
 import postLoader from '~/mixins/postLoader'
 import components from '~/mixins/components'
 export default {
 	name: 'bonus_loop',
-	components: { BonusAsideCard },
+	components: { BonusMainCard },
 	props: {
 		value: {
 			type: Array,

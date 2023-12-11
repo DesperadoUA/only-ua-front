@@ -1,29 +1,7 @@
 <template>
 	<article class="item" @click="refActivate(refLinks)">
 		<div class="wrapper">
-			<div class="left">
-				<div class="img_wrapper">
-					<AText>
-						<AImg :attributes="imgSettings" :src="src" />
-					</AText>
-				</div>
-			</div>
-			<div class="right">
-				<div>
-					<AText :attributes="titleSettings">{{ title }}</AText>
-				</div>
-				<div>
-					<AText :attributes="descTextSettings">{{ desc }}</AText>
-				</div>
-				<div>
-					<AText :attributes="valueTextSettings">{{ value }}</AText>
-				</div>
-			</div>
-			<div class="action">
-				<AText>
-					<AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
-				</AText>
-			</div>
+			Bonus Main Card
 		</div>
 	</article>
 </template>
@@ -31,7 +9,7 @@
 import ref from '~/mixins/ref'
 import components from '~/mixins/components'
 export default {
-	name: 'bonus_slider_card',
+	name: 'bonus_card',
 	mixins: [ref, components],
 	data: () => {
 		return {

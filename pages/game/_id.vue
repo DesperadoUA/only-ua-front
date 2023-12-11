@@ -1,5 +1,4 @@
 <template>
-	<div>
 		<main class="game_page">
 			<div class="container container_top_game">
 				<SlotCard
@@ -43,7 +42,6 @@
 				@onClickDemoClose="onClickDemoClose"
 			/>
 		</main>
-	</div>
 </template>
 
 <script>

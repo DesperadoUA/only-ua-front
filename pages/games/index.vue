@@ -1,23 +1,7 @@
 <template>
-	<div>
 		<main class="games_page">
 			<div class="container">
 				<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
-			</div>
-			<div class="container container_providers">
-				<ProviderFilter :value="data.body.vendors" />
-			</div>
-			<div class="container container_game_week">
-				<div class="left">
-					<GameBigCard
-						v-if="data.body.game_week.length"
-						:link="data.body.game_week[0].permalink"
-						:src="data.body.game_week[0].thumbnail"
-					/>
-				</div>
-				<div class="right">
-					<GameMainCard v-for="(item, index) in gamesWeek" :key="index" :link="item.permalink" :src="item.thumbnail" />
-				</div>
 			</div>
 			<div class="container container_loop" v-if="data.body.games.length">
 				<SlotLoop :value="data.body.games" />
@@ -25,24 +9,14 @@
 			<div class="container content_container" v-if="data.body.content">
 				<Content :value="data.body.content" />
 			</div>
-			<div class="container" v-if="data.body.faq.length">
-				<div class="faq_container">
-					<Faq :value="data.body.faq" />
-				</div>
-			</div>
 		</main>
-	</div>
 </template>
 
 <script>
 import DAL_Page from '~/DAL/static_pages'
 import pageTemplate from '~/mixins/pageTemplate'
-import Faq from '~/components/faq'
-import BonusCategory from '~/components/bonus_category'
 import GameMainCard from '~/components/slot_loop/cards/main'
-import GameBigCard from '~/components/slot_loop/cards/big_card'
 import SlotLoop from '~/components/slot_loop'
-import ProviderFilter from '~/components/provider_list'
 import helper from '~/helpers/helpers'
 import device from '~/mixins/device'
 
@@ -50,12 +24,8 @@ export default {
 	name: 'games-page',
 	mixins: [pageTemplate, device],
 	components: {
-		Faq,
-		BonusCategory,
 		GameMainCard,
-		GameBigCard,
-		SlotLoop,
-		ProviderFilter
+		SlotLoop
 	},
 	layout: 'default',
 	data: () => {
@@ -76,12 +46,6 @@ export default {
 		const response = await DAL_Page.getData(request)
 		const data = helper.headDataMixin(response.data, route)
 		return { data }
-	},
-	computed: {
-		gamesWeek() {
-			const config = { DC: 10, MOB: 10, TABLET: 4 }
-			return this.data.body.games_week_list.slice(0, config[this.device])
-		}
 	}
 }
 </script>

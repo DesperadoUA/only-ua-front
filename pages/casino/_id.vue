@@ -63,11 +63,9 @@
 				</TwoContentContainer>
 			</div>
 		</div>
-		<section class="content_wrapper">
-			<div class="container">
-				<TabContent :value="tabContent" />
-			</div>
-		</section>
+        <div class="container content_container">
+            <Content :value="data.body.content" />
+        </div>
 	</main>
 </template>
 
@@ -79,7 +77,6 @@ import BonusAsideCard from '~/components/bonus_loop/cards/aside_card'
 import CasinoCard from '~/components/casino_card'
 import CasinoDetails from '~/components/casino_detail'
 import GameMainCard from '~/components/slot_loop/cards/main'
-import TabContent from '~/components/content/tab_content'
 import helper from '~/helpers/helpers'
 import device from '~/mixins/device'
 import { getErrorPageObj } from '~/utils'
@@ -92,8 +89,7 @@ export default {
 		TwoContentContainer,
 		CasinoCard,
 		CasinoDetails,
-		GameMainCard,
-		TabContent
+		GameMainCard
 	},
 	layout: 'default',
 	data: () => {
@@ -122,15 +118,6 @@ export default {
 		}
 	},
 	computed: {
-		tabContent() {
-			const data = [
-				{ title: this.t('ANALYSIS'), content: this.data.body.content_analysis },
-				{ title: this.t('BONUSES'), content: this.data.body.content_bonuses },
-				{ title: this.t('REVIEWS'), content: this.data.body.content_reviews },
-				{ title: this.t('GAMES'), content: this.data.body.content_games }
-			]
-			return data
-		},
 		gamesLoop() {
 			const config = {
 				DC: 12,
