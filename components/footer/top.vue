@@ -2,8 +2,8 @@
 	<div v-bind="containerSettings">
 		<div class="container top-container">
 			<div class="left">
-				<FooterLogo :social="changeSocial" />
-				<FooterMenu :value="changeMenu" />
+				<FooterLogo :src="logoSrc" />
+				<FooterMenu :value="menu" />
 			</div>
 			<div class="right">
 				<FooterForm />
@@ -22,25 +22,21 @@ export default {
 		return {
 			containerSettings: {
 				class: 'p_m'
-			},
-			footer_menu: null,
-			social: []
+			}
 		}
 	},
-	computed: {
-		changeMenu() {
-			const settings = this.$store.getters['settings/getSettings']
-			if (settings) {
-				this.footer_menu = settings.filter(item => item.key === 'footer_menu')[0].value
+	props: {
+		logoSrc: {
+			type: String,
+			default() {
+				return ''
 			}
-			return this.footer_menu
 		},
-		changeSocial() {
-			const settings = this.$store.getters['settings/getSettings']
-			if (settings) {
-				this.social = settings.filter(item => item.key === 'social')[0].value
+		menu: {
+			type: Array,
+			default() {
+				return []
 			}
-			return this.social
 		}
 	}
 }

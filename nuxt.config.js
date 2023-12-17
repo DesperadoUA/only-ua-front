@@ -15,7 +15,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      //{ rel: 'script', src: 'https://images.dmca.com/Badges/DMCABadgeHelper.min.js' }
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "true"},
+	    { href: 'https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Work+Sans&display=swap', rel:"stylesheet" }
     ],
   },
   serverMiddleware: [

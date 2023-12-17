@@ -63,9 +63,9 @@
 				</TwoContentContainer>
 			</div>
 		</div>
-        <div class="container content_container">
-            <Content :value="data.body.content" />
-        </div>
+		<div class="container content_container">
+			<Content :value="data.body.content" />
+		</div>
 	</main>
 </template>
 

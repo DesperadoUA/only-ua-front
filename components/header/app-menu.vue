@@ -1,12 +1,7 @@
 <template>
 	<div class="header_menu">
 		<nav class="header_menu_container">
-			<div
-				v-for="(item, index) in settings"
-				:key="index"
-				class="header_menu_item"
-				:data-active="activeLink(item.value_2)"
-			>
+			<div v-for="(item, index) in value" :key="index" class="header_menu_item">
 				<ALink :href="item.value_2" :attributes="linkSettings">{{ item.value_1 }}</ALink>
 			</div>
 		</nav>
@@ -17,6 +12,14 @@ import components from '~/mixins/components'
 export default {
 	name: 'app-menu',
 	mixins: [components],
+	props: {
+		value: {
+			type: Array,
+			default() {
+				return []
+			}
+		}
+	},
 	data() {
 		return {
 			linkSettings: {
@@ -25,21 +28,7 @@ export default {
 				weight: 'regular',
 				size: 'small',
 				decoration: 'none'
-			},
-			settings: []
-		}
-	},
-	methods: {
-		activeLink(link) {
-			return link === this.$route.path
-		}
-	},
-	async mounted() {
-		const data = { lang: 1 }
-		await this.$store.dispatch('settings/setSettings', data)
-		const settings = this.$store.getters['settings/getSettings']
-		if (settings.length !== 0) {
-			this.settings = settings.filter(item => item.key === 'header_menu')[0].value
+			}
 		}
 	}
 }

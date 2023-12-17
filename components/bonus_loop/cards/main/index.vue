@@ -1,7 +1,23 @@
 <template>
 	<article class="item" @click="refActivate(refLinks)">
-		<div class="wrapper">
-			Bonus Main Card
+		<div class="top" :style="`background: ${bg}`">
+			<div class="label" v-if="label" :class="label">
+				{{ label }}
+			</div>
+			<div class="rating">
+				<AImg :attributes="starSettings" src="/img/goldStar.svg" />
+				<AText tag="span" :attributes="textSettings">{{ rating / 10 }}</AText>
+				<AText tag="span" :attributes="thinTextSettings">/10</AText>
+			</div>
+			<AImg :attributes="imgSettings" :src="src" />
+		</div>
+		<div class="bottom">
+			<AText tag="div" :attributes="titleSettings">Вітальний пакет</AText>
+			<AText tag="div" :attributes="valueTextSettings">125 000 ₴ + 500 FS</AText>
+			<div class="btn_wrapper">
+				<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
+			</div>
+			<AText tag="div" :attributes="descTextSettings">Вітальний пакет</AText>
 		</div>
 	</article>
 </template>
@@ -14,33 +30,55 @@ export default {
 	data: () => {
 		return {
 			imgSettings: {
-				width: '62px',
-				height: '62px',
-				class: 'object_fit_cover border_radius_50'
+				width: '210px',
+				height: '92px'
 			},
-			arrowSettings: {
-				width: '26px',
-				height: '26px'
+			starSettings: {
+				width: '14px',
+				height: '14px',
+				class: ' m_r_xs'
 			},
 			titleSettings: {
 				color: 'cairo',
 				size: 'small',
 				weight: 'bold',
 				decoration: 'none',
+				align: 'center',
 				class: 'title'
 			},
 			descTextSettings: {
-				color: 'cairo',
+				color: 'cordoba',
 				size: 'small',
 				weight: 'regular',
-				class: 'desc'
+				class: 'desc',
+				align: 'center',
+				decoration: 'underline'
 			},
 			valueTextSettings: {
-				color: 'calgary',
+				color: 'cucuta',
 				size: 'large',
 				weight: 'bold',
 				transform: 'uppercase',
+				align: 'center',
 				class: 'bonus_card_value'
+			},
+			textSettings: {
+				color: 'cairo',
+				size: 'small',
+				bold: 'semi-bold',
+				class: 'rating_value'
+			},
+			thinTextSettings: {
+				color: 'cordoba',
+				size: 'small',
+				bold: 'thin',
+				class: 'rating_total_value'
+			},
+			btnSettings: {
+				bg: 'calgary',
+				color: 'cochin',
+				borderRadius: 's',
+				weight: 'semi-bold'
 			}
 		}
 	},
@@ -66,7 +104,25 @@ export default {
 		src: {
 			type: String,
 			default() {
-				return '/img/noImages.png'
+				return '/img/casino-logo.png'
+			}
+		},
+		bg: {
+			type: String,
+			default() {
+				return '#1f1c33'
+			}
+		},
+		label: {
+			type: String,
+			default() {
+				return 'Popular'
+			}
+		},
+		rating: {
+			type: Number,
+			default() {
+				return 0
 			}
 		}
 	}
@@ -74,78 +130,90 @@ export default {
 </script>
 <style scoped>
 .item {
-	width: 356px;
-	height: 95px;
-	padding: 5px;
-	padding-right: 25px;
-	cursor: pointer;
-}
-.wrapper {
+	width: 210px;
 	position: relative;
-	border-radius: 14px;
-	height: 100%;
-	background: rgba(255, 255, 255, 0.1);
-	display: flex;
+	max-width: 210px;
 }
-.img_wrapper {
+.top {
+	border-radius: 8px;
+	background: #1f1c33;
+	height: 165px;
+	box-shadow: 0px 6px 10px 0px rgba(158, 167, 200, 0.1);
+}
+.Popular {
+	background: #ff005c;
+}
+.Best {
+	background: #da00ed;
+}
+.New {
+	background: rgba(0, 163, 255, 1);
+}
+.Trusted {
+	background: rgba(0, 184, 107, 1);
+}
+.label {
+	position: absolute;
 	width: 62px;
-	height: 62px;
-}
-.left {
-	width: 90px;
-	min-width: 90px;
+	height: 22px;
+	text-transform: uppercase;
+	color: var(--cairo);
+	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-size: 10px;
+	top: 2px;
+	left: 2px;
+	border-radius: 8px;
+	font-family: 'Work Sans';
+}
+.rating {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	z-index: 2;
+	width: 70px;
+	height: 22px;
 	display: flex;
-	height: 100%;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	font-family: 'Work Sans';
+	background: rgba(0, 0, 0, 0.26);
+	backdrop-filter: blur(5px);
+	color: var(--cairo);
 }
-.right {
-	flex-grow: 1;
+.rating_value {
+	transform: translateY(1px);
 }
-.desc {
-	line-height: 18px;
-	display: block;
-	margin-top: 8px;
+.rating_total_value {
+	font-size: 10px;
+	transform: translateY(1px);
+}
+.bottom {
+	width: calc(100% - 4px);
+	height: 150px;
+	border: 1px solid rgba(206, 210, 226, 1);
+	border-radius: 8px;
+	background: #fff;
+	top: -75px;
+	position: relative;
+	margin: 0 auto;
 }
 .title {
-	line-height: 12px;
-	display: block;
-	margin-top: 15px;
+	color: rgba(104, 106, 119, 1);
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	margin-top: 12px;
 }
-.action {
-	min-width: 26px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.btn_wrapper {
+	width: 170px;
+	height: 38px;
+	margin: 0 auto;
+	margin-top: 10px;
 }
-@media (max-width: 767px) {
-	.item {
-		padding-right: 0px;
-		width: 100%;
-	}
-	.bonus_card_value {
-		font-size: 14px;
-	}
-	.desc {
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		width: 190px;
-		overflow: hidden;
-	}
-}
-@media (min-width: 768px) and (max-width: 1200px) {
-	.item {
-		padding-right: 0px;
-		width: 100%;
-	}
-	.bonus_card_value {
-		font-size: 14px;
-	}
-	.desc {
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		width: 190px;
-		overflow: hidden;
-	}
+.desc {
+	margin-top: 5px;
 }
 </style>

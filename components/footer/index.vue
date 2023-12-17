@@ -1,12 +1,9 @@
 <template>
-	<footer class="footer">
-		<!--
-		<FooterTop />
-		<FooterPartners :value="changePartners" />
-		<FooterDescription :value="changeDescription" />
-		<FooterText :value="changeText" />
-		-->
-		Footer
+	<footer class="footer" v-if="getOptions">
+		<FooterTop :logoSrc="getOptions.logo" :menu="getMenu" />
+		<FooterPartners :value="getPartners" />
+		<FooterDescription :value="getOptions.footer_desc" />
+		<FooterText :value="getOptions.footer_text" />
 	</footer>
 </template>
 <script>
@@ -14,6 +11,8 @@ import FooterDescription from './footer-description'
 import FooterText from './footer-text'
 import FooterPartners from './partners'
 import FooterTop from './top'
+import wpPartnersAdapter from './adapters/wp_partners'
+import wpMenuAdapter from './adapters/wp_menu'
 export default {
 	name: 'app-footer',
 	components: { FooterText, FooterDescription, FooterPartners, FooterTop },
@@ -23,32 +22,20 @@ export default {
 			footer_text: '',
 			partners: []
 		}
-	}
-	/*
+	},
 	computed: {
-		changeDescription() {
-			const settings = this.$store.getters['settings/getSettings']
-			if (settings) {
-				this.footer_description = settings.filter(item => item.key === 'footer_description')[0].value
-			}
-			return this.footer_description
+		getOptions() {
+			return this.$store.getters['options/getOptions']
 		},
-		changeText() {
-			const settings = this.$store.getters['settings/getSettings']
-			if (settings) {
-				this.footer_text = settings.filter(item => item.key === 'footer_text')[0].value
-			}
-			return this.footer_text
+		getPartners() {
+			const { partners } = this.$store.getters['options/getOptions']
+			return partners ? partners.map(item => wpPartnersAdapter(item)) : []
 		},
-		changePartners() {
-			const settings = this.$store.getters['settings/getSettings']
-			if (settings) {
-				this.partners = settings.filter(item => item.key === 'partners')[0].value
-			}
-			return this.partners
+		getMenu() {
+			const { footer_menu } = this.$store.getters['options/getOptions']
+			return footer_menu ? footer_menu.map(item => wpMenuAdapter(item)) : []
 		}
 	}
-	*/
 }
 </script>
 <style scoped>

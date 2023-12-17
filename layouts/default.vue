@@ -27,7 +27,7 @@ export default {
 	--calgary: #00ea17;
 	--cordoba: #b3b6c8;
 	--callao: rgba(206, 210, 226, 0.2);
-	--cucuta: #1b1831;
+	--cucuta: #1d2146;
 	--colombo: #08051a;
 	--cancun: #232036;
 	--cochin: #323234;
@@ -521,7 +521,7 @@ Common styles*/
 	h5,
 	h6 {
 		font-size: 24px;
-		color: var(--cairo);
+		color: #000;
 		margin-bottom: 15px;
 	}
 	h2 {
@@ -541,7 +541,7 @@ Common styles*/
 	}
 	p,
 	li {
-		color: rgba(255, 255, 255, 0.85);
+		color: #000;
 		font-size: 14px;
 		line-height: 24px;
 		margin-bottom: 15px;
@@ -593,6 +593,9 @@ Common styles*/
 .content_container {
 	padding-top: 40px;
 	padding-bottom: 20px;
+}
+.content_section {
+	background: #e4e5eb;
 }
 .main_container {
 	padding-bottom: 60px;

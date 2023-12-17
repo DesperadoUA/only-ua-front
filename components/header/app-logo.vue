@@ -1,7 +1,7 @@
 <template>
 	<div class="header_logo">
 		<ALink href="/">
-			<AImg :attributes="imgSettings" src="/img/logo_footer.png" />
+			<AImg :attributes="imgSettings" :src="src" />
 		</ALink>
 	</div>
 </template>
@@ -9,12 +9,21 @@
 import components from '~/mixins/components'
 export default {
 	name: 'logo',
-    mixins: [components],
+	mixins: [components],
+	props: {
+		src: {
+			type: String,
+			default() {
+				return ''
+			}
+		}
+	},
 	data() {
 		return {
 			options: null,
 			imgSettings: {
-				width: '160px', height: '36px'
+				width: '162px',
+				height: '59px'
 			}
 		}
 	}

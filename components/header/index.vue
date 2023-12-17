@@ -1,48 +1,32 @@
 <template>
-	<header>
-		<NuxtLink no-prefetch to="/">
-			Home
-		</NuxtLink>
-		<NuxtLink no-prefetch to="/bonuses">
-			Bonuses
-		</NuxtLink>
-	</header>
-	<!--
 	<header class="header">
 		<div class="container header_container" v-if="device === 'DC'">
 			<div class="header_left">
-				<Logo />
+				<Logo v-if="getOptions" :src="getOptions.logo" />
 			</div>
 			<div class="header_center">
-				<Search />
 				<div class="wrapper_menu">
-					<Menu />
+					<Menu v-if="getOptions" :value="getMenu" />
 				</div>
 			</div>
-			<div class="header_right">
-				<LangSelector />
-			</div>
+			<div class="header_right"></div>
 		</div>
 		<div class="container" v-else>
 			<div class="header_mob_container">
-				<Logo />
+				<Logo v-if="getOptions" :src="getOptions.logo" />
 				<div class="burger" @click="mobMenuToggle"></div>
 			</div>
-			<div class="header_mob_search_container">
-				<Search />
-			</div>
+			<div class="header_mob_search_container"></div>
 			<div class="header_mob_menu" :class="{ active: menuActive }">
 				<div class="header_mob_menu_wrapper">
 					<div class="mob_lang_container">
-						<LangSelector />
 						<div class="burger_close" @click="mobMenuToggle"></div>
 					</div>
-					<Menu />
+					<Menu v-if="getOptions" :value="getMenu" />
 				</div>
 			</div>
 		</div>
 	</header>
-	-->
 </template>
 <script>
 import Logo from './app-logo'
@@ -50,6 +34,7 @@ import Menu from './app-menu'
 import Search from './app-search'
 import LangSelector from './lang_selector'
 import components from '~/mixins/components'
+import wpMenuAdapter from './adapters/wp_menu'
 export default {
 	name: 'app_header',
 	components: { Logo, Menu, Search, LangSelector },
@@ -57,6 +42,15 @@ export default {
 	data() {
 		return {
 			menuActive: false
+		}
+	},
+	computed: {
+		getOptions() {
+			return this.$store.getters['options/getOptions']
+		},
+		getMenu() {
+			const { header_menu } = this.$store.getters['options/getOptions']
+			return header_menu ? header_menu.map(item => wpMenuAdapter(item)) : []
 		}
 	},
 	watch: {
@@ -72,6 +66,9 @@ export default {
 		mobMenuToggle() {
 			this.menuActive = !this.menuActive
 		}
+	},
+	async mounted() {
+		await this.$store.dispatch('options/setOptions')
 	}
 }
 </script>
