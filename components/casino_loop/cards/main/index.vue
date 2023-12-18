@@ -23,9 +23,9 @@
 					</ALink>
 					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
 					<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
-					<AText tag="div" :attributes="bonusDescSettings"
-						>Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}</AText
-					>
+					<AText tag="div" :attributes="bonusDescSettings">
+                        Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}
+                    </AText>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
 							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
