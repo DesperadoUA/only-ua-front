@@ -2,7 +2,10 @@
 	<div class="header_menu">
 		<nav class="header_menu_container">
 			<div v-for="(item, index) in value" :key="index" class="header_menu_item">
-				<ALink :href="item.value_2" :attributes="linkSettings">{{ item.value_1 }}</ALink>
+				<ALink :href="item.value_2" :attributes="linkSettings">
+                    <AImg :attributes="iconSettings" :src="item.src" />
+                    {{ item.value_1 }}
+                </ALink>
 			</div>
 		</nav>
 	</div>
@@ -28,7 +31,12 @@ export default {
 				weight: 'regular',
 				size: 'small',
 				decoration: 'none'
-			}
+			},
+            iconSettings: {
+                width: '24px',
+                height: '24px',
+                class: 'icon'
+            }
 		}
 	}
 }
