@@ -153,15 +153,6 @@ export default {
 }
 </script>
 <style scoped>
-.slider_wrapper {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-}
-.slider_item {
-	max-width: 48%;
-	margin-bottom: var(--m);
-}
 .main_page {
 	background: url('/img/hero_img.webp') top center var(--cairo);
 	background-repeat: no-repeat;
@@ -174,22 +165,8 @@ export default {
 	max-width: 750px;
 	margin-top: 15px;
 }
-.slider_wrapper {
-	padding-top: 50px;
-	padding-bottom: 50px;
-}
-.aside_bonus_container {
-	margin-top: var(--s);
-	display: flex;
-	flex-wrap: wrap;
-	gap: 15px;
-}
 .aside {
 	padding-top: var(--xl);
-}
-.section_title_wrapper {
-	display: flex;
-	justify-content: space-between;
 }
 .main_page_h1 {
 	line-height: 62px;
@@ -203,24 +180,11 @@ export default {
 		font-size: 32px;
 		line-height: 40px;
 	}
-	.slider_item {
-		max-width: 100%;
-		margin-bottom: var(--m);
-		flex-grow: 1;
-	}
-	.slider_wrapper {
-		padding-top: 30px;
-	}
 	.aside {
 		padding-top: 30px;
 	}
 	.main_page {
 		padding-top: 150px;
-	}
-	.btn_wrapper {
-		max-width: 272px;
-		width: 272px;
-		height: 52px;
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {
