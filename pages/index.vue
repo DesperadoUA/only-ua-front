@@ -9,16 +9,88 @@
 			</div>
 			<div class="bonus_wrapper">
 				<Slider :settings="bonusSliderSettings">
-					<BonusMainCard bg="#d21037" label="Popular" rating="90" />
-					<BonusMainCard bg="#320059" label="Trusted" rating="87" />
-					<BonusMainCard bg="#320059" label="New" />
-					<BonusMainCard bg="#fff" label="Best" />
-					<BonusMainCard />
-					<BonusMainCard />
-					<BonusMainCard />
-					<BonusMainCard />
-					<BonusMainCard />
-					<BonusMainCard />
+					<BonusMainCard
+                        bg="#d21037"
+                        label="Popular"
+                        rating="90"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#320059"
+                        label="Trusted"
+                        rating="87"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#320059"
+                        label="New"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#fff"
+                        label="Best"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#fff"
+                        label="Best"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#fff"
+                        label="Best"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#fff"
+                        label="Best"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#fff"
+                        label="Best"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#fff"
+                        label="Best"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
+					<BonusMainCard
+                        bg="#fff"
+                        label="Best"
+                        src="/img/game_types/casino-logo.png"
+                        title="Вітальний пакет"
+                        value="125 000 ₴ + 500FS"
+                        desc="Bonus T&C"
+                    />
 				</Slider>
 			</div>
 			<div class="main_container">

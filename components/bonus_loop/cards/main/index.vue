@@ -12,12 +12,12 @@
 			<AImg :attributes="imgSettings" :src="src" />
 		</div>
 		<div class="bottom">
-			<AText tag="div" :attributes="titleSettings">Вітальний пакет</AText>
-			<AText tag="div" :attributes="valueTextSettings">125 000 ₴ + 500 FS</AText>
+			<AText tag="div" :attributes="titleSettings">{{title}}</AText>
+			<AText tag="div" :attributes="valueTextSettings">{{value}}</AText>
 			<div class="btn_wrapper">
 				<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 			</div>
-			<AText tag="div" :attributes="descTextSettings">Вітальний пакет</AText>
+			<AText tag="div" :attributes="descTextSettings">{{desc}}</AText>
 		</div>
 	</article>
 </template>
