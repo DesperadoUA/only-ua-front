@@ -36,7 +36,7 @@
 						desc="Bonus T&C"
 					/>
 					<BonusMainCard
-						bg="#fff"
+						bg="#d21037"
 						label="Best"
 						src="/img/slotokingLogo.png"
 						title="Вітальний пакет"
@@ -44,7 +44,7 @@
 						desc="Bonus T&C"
 					/>
 					<BonusMainCard
-						bg="#fff"
+						bg="#d21037"
 						label="Best"
 						src="/img/slotokingLogo.png"
 						title="Вітальний пакет"
@@ -52,7 +52,7 @@
 						desc="Bonus T&C"
 					/>
 					<BonusMainCard
-						bg="#fff"
+						bg="#320059"
 						label="Best"
 						src="/img/slotokingLogo.png"
 						title="Вітальний пакет"
@@ -60,7 +60,7 @@
 						desc="Bonus T&C"
 					/>
 					<BonusMainCard
-						bg="#fff"
+						bg="#320059"
 						label="Best"
 						src="/img/slotokingLogo.png"
 						title="Вітальний пакет"
@@ -68,7 +68,7 @@
 						desc="Bonus T&C"
 					/>
 					<BonusMainCard
-						bg="#fff"
+						bg="#320059"
 						label="Best"
 						src="/img/slotokingLogo.png"
 						title="Вітальний пакет"
@@ -76,7 +76,7 @@
 						desc="Bonus T&C"
 					/>
 					<BonusMainCard
-						bg="#fff"
+						bg="#320059"
 						label="Best"
 						src="/img/slotokingLogo.png"
 						title="Вітальний пакет"
@@ -84,7 +84,7 @@
 						desc="Bonus T&C"
 					/>
 					<BonusMainCard
-						bg="#fff"
+						bg="#320059"
 						label="Best"
 						src="/img/slotokingLogo.png"
 						title="Вітальний пакет"

@@ -32,7 +32,7 @@ export default {
 	--cancun: #232036;
 	--cochin: #323234;
 	--cardiff: rgba(0, 0, 0, 0.26);
-	--cleveland: #5e40b5;
+	--cleveland: #686a77;
 	--xxs: 2px;
 	--xs: 4px;
 	--s: 8px;
@@ -42,10 +42,10 @@ export default {
 	--container-width: 1230px;
 	--container--cms: 960px;
 	--side-gutters: 0px;
-    --trusted-color: rgba(0, 184, 107, 1);
-    --new-color: rgba(0, 163, 255, 1);
-    --popular-color: rgba(255, 0, 92, 1);
-    --best-color: #da00ed;
+	--trusted-color: rgba(0, 184, 107, 1);
+	--new-color: rgba(0, 163, 255, 1);
+	--popular-color: rgba(255, 0, 92, 1);
+	--best-color: #da00ed;
 
 	/* Fonts */
 	--base-line-height: 1.7;

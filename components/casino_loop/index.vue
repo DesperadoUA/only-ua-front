@@ -14,6 +14,7 @@
 				:wager="item.wager"
 				:min_dep="item.min_dep"
 				:vendors="item.vendors"
+				:payments="item.payments"
 				:rating="item.rating"
 				:refLinks="item.ref"
 			/>

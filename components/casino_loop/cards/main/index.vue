@@ -24,14 +24,15 @@
 					<AText tag="div" :attributes="bonusNameSettings">{{ t('WELCOME_PACKAGE') }}</AText>
 					<AText tag="div" :attributes="bonusValueSettings">{{ bonus_value }}</AText>
 					<AText tag="div" :attributes="bonusDescSettings">
-                        Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}
-                    </AText>
+						Min. deposit: <b class="text_color_cucuta">{{ min_dep }}</b> &middot; Wagering:
+						<b class="text_color_cucuta">{{ wager }}</b>
+					</AText>
 					<div class="action_wrapper">
 						<div class="btn_wrapper">
 							<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 						</div>
 						<ALink :href="link" :attributes="readMoreLinkSettings"
-							><AImg :attributes="searchSettings" src="/img/search.png" />
+							><AImg :attributes="searchSettings" src="/img/read_more_arrow.png" />
 						</ALink>
 					</div>
 				</div>
@@ -41,36 +42,28 @@
 							item
 						}}</AText>
 					</div>
+					<div class="payments">
+						<div class="payments_icon"></div>
+						<div class="payments_loop">
+							<div v-for="(item, index) in payments.slice(0, 4)" :attributes="paymentLinkSettings" :key="index">
+								<AImg :attributes="paymentSettings" :src="item.thumbnail" />
+							</div>
+						</div>
+						<div class="payments_total">
+							<AText tag="span">+ {{ payments.length }}</AText>
+						</div>
+					</div>
 					<div class="providers">
 						<div class="providers_icon"></div>
 						<div class="providers_loop">
-							<div
-								v-for="(item, index) in vendors.slice(0, 4)"
-								:attributes="providerLinkSettings"
-								:key="index"
-							>
+							<div v-for="(item, index) in vendors.slice(0, 4)" :attributes="providerLinkSettings" :key="index">
 								<AImg :attributes="providerSettings" :src="item.thumbnail" />
 							</div>
 						</div>
 						<div class="providers_total">
-							<AText tag="span" :attributes="totalTextSettings">+ {{ vendors.length }}</AText>
+							<AText tag="span">+ {{ vendors.length }}</AText>
 						</div>
 					</div>
-                    <div class="payments">
-                        <div class="payments_icon"></div>
-                        <div class="payments_loop">
-                            <div
-                                v-for="(item, index) in payments.slice(0, 4)"
-                                :attributes="paymentLinkSettings"
-                                :key="index"
-                            >
-                                <AImg :attributes="paymentSettings" :src="item.thumbnail" />
-                            </div>
-                        </div>
-                        <div class="payments_total">
-                            <AText tag="span" :attributes="totalTextSettings">+ {{ payments.length }}</AText>
-                        </div>
-                    </div>
 				</div>
 			</div>
 			<div class="right" v-else>
@@ -97,7 +90,7 @@
 						</ALink>
 					</div>
 					<div class="providers_total">
-						<AText tag="span" :attributes="totalTextSettings">+ {{ vendors.length }}</AText>
+						<AText tag="span">+ {{ vendors.length }}</AText>
 					</div>
 				</div>
 				<div class="details_wrapper">
@@ -155,25 +148,25 @@ export default {
 				height: '20px'
 			},
 			titleLinkSettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				size: 'large',
 				weight: 'bold',
 				decoration: 'none'
 			},
 			bonusNameSettings: {
-				color: 'cairo',
+				color: 'cleveland',
 				size: 'small',
 				weight: 'regular',
 				class: 'bonus_name'
 			},
 			bonusValueSettings: {
-				color: 'calgary',
+				color: 'cucuta',
 				size: 'large',
 				weight: 'bold',
 				class: 'bonus_value'
 			},
 			bonusDescSettings: {
-				color: 'cairo',
+				color: 'cleveland',
 				size: 'small',
 				weight: 'regular',
 				class: 'bonus_desc'
@@ -189,29 +182,26 @@ export default {
 				class: 'read_more'
 			},
 			advantagesTextSettings: {
-				color: 'cairo',
+				color: 'cleveland',
 				size: 'small',
 				class: 'advantages'
-			},
-			totalTextSettings: {
-				color: 'cairo'
 			},
 			providerLinkSettings: {
 				class: 'provider_link'
 			},
-            paymentsLinkSettings: {
-                class: 'payment_link'
-            },
+			paymentsLinkSettings: {
+				class: 'payment_link'
+			},
 			providerSettings: {
 				class: 'provider_img',
 				width: '54px',
 				height: '34px'
 			},
-            paymentsSettings: {
-                class: 'payment_img',
-                width: '54px',
-                height: '34px'
-            },
+			paymentsSettings: {
+				class: 'payment_img',
+				width: '54px',
+				height: '34px'
+			},
 			detailActive: false
 		}
 	},
@@ -282,6 +272,12 @@ export default {
 				return []
 			}
 		},
+		payments: {
+			type: Array,
+			default() {
+				return []
+			}
+		},
 		rating: {
 			type: Number,
 			default() {
@@ -330,7 +326,8 @@ export default {
 .right {
 	display: flex;
 	flex-grow: 1;
-	background: rgba(16, 13, 36, 0.7);
+	border: 1px solid #ced2e2;
+	background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
 	border-radius: var(--m);
 	padding: var(--m);
 }
@@ -349,18 +346,19 @@ export default {
 	display: flex;
 	width: 40px;
 	height: 40px;
-	background: var(--cleveland);
+	background: rgba(245, 246, 250, 1);
 	border-radius: var(--s);
 	margin-left: var(--s);
 	align-items: center;
 	justify-content: center;
+	border: 1px solid rgba(206, 210, 226, 1);
 }
 .right_right {
 	flex-grow: 1;
 	padding-left: var(--m);
 }
 .advantages {
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 	position: relative;
 	padding-left: 25px;
 }
@@ -375,46 +373,60 @@ export default {
 	top: 0;
 	left: 0;
 }
-.providers, .payments {
+.payments {
+	margin-bottom: 10px;
+}
+.providers,
+.payments {
 	display: flex;
 	justify-content: space-between;
 }
-.providers_icon, .payments_icon {
+.providers_icon,
+.payments_icon {
 	height: 34px;
 	width: 18px;
-	background: url('/img/providers.png');
+	background: url('/img/vendor_icon.png');
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.providers_total, .payments_total {
+.payments_icon {
+	background: url('/img/payment_icon.png');
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.providers_total,
+.payments_total {
 	height: 34px;
 	width: 34px;
-	background: var(--cleveland);
+	background: rgba(245, 246, 250, 1);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	border-radius: var(--s);
-	border: 1px solid rgba(94, 64, 181, 0.45);
+	border: 1px solid rgba(206, 210, 226, 1);
 	font-size: 10px;
+	color: rgba(29, 33, 70, 1);
 }
-.providers_loop, .payments_loop {
+.providers_loop,
+.payments_loop {
 	flex-grow: 1;
 	display: flex;
 	justify-content: space-around;
 }
-.provider_link, .payment_link {
+.provider_link,
+.payment_link {
 	display: inline-block;
 	width: 54px;
 	height: 34px;
 }
-.provider_img, .payment_img {
+.provider_img,
+.payment_img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
 	border-radius: var(--s);
 }
 .advantages_wrapper {
-	height: 123px;
 	overflow: hidden;
 	padding-bottom: 5px;
 }
@@ -464,7 +476,7 @@ export default {
 	background: var(--popular-color);
 }
 .label.best {
-    background: var(--best-color);
+	background: var(--best-color);
 }
 @media (max-width: 767px) {
 	.item {
