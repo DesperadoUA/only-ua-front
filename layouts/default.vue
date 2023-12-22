@@ -42,6 +42,10 @@ export default {
 	--container-width: 1230px;
 	--container--cms: 960px;
 	--side-gutters: 0px;
+    --trusted-color: rgba(0, 184, 107, 1);
+    --new-color: rgba(0, 163, 255, 1);
+    --popular-color: rgba(255, 0, 92, 1);
+    --best-color: #da00ed;
 
 	/* Fonts */
 	--base-line-height: 1.7;

@@ -44,19 +44,33 @@
 					<div class="providers">
 						<div class="providers_icon"></div>
 						<div class="providers_loop">
-							<ALink
+							<div
 								v-for="(item, index) in vendors.slice(0, 4)"
-								:href="item.permalink"
 								:attributes="providerLinkSettings"
 								:key="index"
 							>
 								<AImg :attributes="providerSettings" :src="item.thumbnail" />
-							</ALink>
+							</div>
 						</div>
 						<div class="providers_total">
 							<AText tag="span" :attributes="totalTextSettings">+ {{ vendors.length }}</AText>
 						</div>
 					</div>
+                    <div class="payments">
+                        <div class="payments_icon"></div>
+                        <div class="payments_loop">
+                            <div
+                                v-for="(item, index) in payments.slice(0, 4)"
+                                :attributes="paymentLinkSettings"
+                                :key="index"
+                            >
+                                <AImg :attributes="paymentSettings" :src="item.thumbnail" />
+                            </div>
+                        </div>
+                        <div class="payments_total">
+                            <AText tag="span" :attributes="totalTextSettings">+ {{ payments.length }}</AText>
+                        </div>
+                    </div>
 				</div>
 			</div>
 			<div class="right" v-else>
@@ -185,11 +199,19 @@ export default {
 			providerLinkSettings: {
 				class: 'provider_link'
 			},
+            paymentsLinkSettings: {
+                class: 'payment_link'
+            },
 			providerSettings: {
 				class: 'provider_img',
 				width: '54px',
 				height: '34px'
 			},
+            paymentsSettings: {
+                class: 'payment_img',
+                width: '54px',
+                height: '34px'
+            },
 			detailActive: false
 		}
 	},
@@ -353,18 +375,18 @@ export default {
 	top: 0;
 	left: 0;
 }
-.providers {
+.providers, .payments {
 	display: flex;
 	justify-content: space-between;
 }
-.providers_icon {
+.providers_icon, .payments_icon {
 	height: 34px;
 	width: 18px;
 	background: url('/img/providers.png');
 	background-position: center;
 	background-repeat: no-repeat;
 }
-.providers_total {
+.providers_total, .payments_total {
 	height: 34px;
 	width: 34px;
 	background: var(--cleveland);
@@ -375,17 +397,17 @@ export default {
 	border: 1px solid rgba(94, 64, 181, 0.45);
 	font-size: 10px;
 }
-.providers_loop {
+.providers_loop, .payments_loop {
 	flex-grow: 1;
 	display: flex;
 	justify-content: space-around;
 }
-.provider_link {
+.provider_link, .payment_link {
 	display: inline-block;
 	width: 54px;
 	height: 34px;
 }
-.provider_img {
+.provider_img, .payment_img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
@@ -433,13 +455,16 @@ export default {
 	justify-content: center;
 }
 .label.trusted {
-	background: rgba(0, 184, 107, 1);
+	background: var(--trusted-color);
 }
 .label.new {
-	background: rgba(0, 163, 255, 1);
+	background: var(--new-color);
 }
 .label.popular {
-	background: rgba(255, 0, 92, 1);
+	background: var(--popular-color);
+}
+.label.best {
+    background: var(--best-color);
 }
 @media (max-width: 767px) {
 	.item {

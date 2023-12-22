@@ -141,16 +141,16 @@ export default {
 	box-shadow: 0px 6px 10px 0px rgba(158, 167, 200, 0.1);
 }
 .Popular {
-	background: #ff005c;
+	background: var(--popular-color);
 }
 .Best {
-	background: #da00ed;
+	background: var(--best-color);
 }
 .New {
-	background: rgba(0, 163, 255, 1);
+	background: var(--new-color);
 }
 .Trusted {
-	background: rgba(0, 184, 107, 1);
+	background: var(--trusted-color);
 }
 .label {
 	position: absolute;
