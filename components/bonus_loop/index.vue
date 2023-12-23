@@ -1,23 +1,23 @@
 <template>
 	<div>
 		<div class="bonus_loop">
-			<div class="bonus_item" v-for="item in currentPosts" :key="item.title">
-				<BonusAsideCard
-					:link="item.permalink"
-					:src="item.thumbnail"
-					:title="item.title"
-					:desc="item.short_desc"
-					:value="item.bonus"
-					:min_dep="item.min_deposit"
-					:wager="item.wagering"
-					:refLinks="item.casino.ref"
-				/>
-			</div>
+            <BonusMainCard
+                v-for="(item, index) in value"
+                :key="index"
+                :bg="item.bg"
+                :label="item.label"
+                :rating="item.rating"
+                :src="item.thumbnail"
+                :title="item.title"
+                :value="item.value"
+                :desc="item.desc"
+                :refLinks="item.ref"
+            />
 		</div>
 		<div class="items-more" v-if="hideBtnShowMore">
 			<div class="btn_wrapper">
 				<AButton @onClick="postShowMore" :attributes="btnSettings">
-					{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
+					{{ t('SHOW_MORE') }}
 				</AButton>
 			</div>
 		</div>
@@ -50,11 +50,6 @@ export default {
 				weight: 'bold',
 				size: 'medium'
 			},
-			arrowSettings: {
-				width: '18px',
-				height: '18px',
-				class: 'arrow'
-			}
 		}
 	}
 }
@@ -63,18 +58,6 @@ export default {
 .bonus_loop {
 	display: flex;
 	flex-wrap: wrap;
-}
-.bonus_item {
-	width: 33.3%;
-	margin-bottom: 12px;
-}
-.bonus_item:nth-child(3n + 2) {
-	display: flex;
-	justify-content: center;
-}
-.bonus_item:nth-child(3n + 3) {
-	display: flex;
-	justify-content: flex-end;
 }
 .items-more {
 	display: flex;

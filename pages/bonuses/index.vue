@@ -3,6 +3,9 @@
 			<div class="container">
 				<AText tag="div" :attributes="titleSettings">{{ data.body.h1 }}</AText>
 			</div>
+            <div class="container bonus_container">
+                <BonusLoop :value="data.body.bonuses" />
+            </div>
 			<div class="container content_container">
 				<Content :value="data.body.content" />
 			</div>
@@ -14,11 +17,12 @@ import DAL_Page from '~/DAL/static_pages'
 import pageTemplate from '~/mixins/pageTemplate'
 import helper from '~/helpers/helpers'
 import config from '~/config'
+import BonusLoop from '~/components/bonus_loop'
 
 export default {
 	name: 'bonuses-page',
 	mixins: [pageTemplate],
-	components: {},
+	components: {BonusLoop},
 	layout: 'default',
 	data: () => {
 		return {
