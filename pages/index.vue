@@ -10,86 +10,16 @@
 			<div class="bonus_wrapper">
 				<Slider :settings="bonusSliderSettings">
 					<BonusMainCard
-						bg="#d21037"
-						label="Popular"
-						rating="90"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#320059"
-						label="Trusted"
-						rating="87"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#320059"
-						label="New"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#d21037"
-						label="Best"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#d21037"
-						label="Best"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#320059"
-						label="Best"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#320059"
-						label="Best"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#320059"
-						label="Best"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#320059"
-						label="Best"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
-					/>
-					<BonusMainCard
-						bg="#320059"
-						label="Best"
-						src="/img/slotokingLogo.png"
-						title="Вітальний пакет"
-						value="125 000 ₴ + 500FS"
-						desc="Bonus T&C"
+                        v-for="(item, index) in data.body.bonuses"
+                        :key="index"
+						:bg="item.bg"
+						:label="item.label"
+						:rating="item.rating"
+						:src="item.thumbnail"
+						:title="item.title"
+						:value="item.value"
+						:desc="item.desc"
+                        :refLinks="item.ref"
 					/>
 				</Slider>
 			</div>
