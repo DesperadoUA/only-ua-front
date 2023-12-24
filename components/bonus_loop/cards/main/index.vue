@@ -12,12 +12,12 @@
 			<AImg :attributes="imgSettings" :src="src" />
 		</div>
 		<div class="bottom">
-			<AText tag="div" :attributes="titleSettings">{{title}}</AText>
-			<AText tag="div" :attributes="valueTextSettings">{{value}}</AText>
+			<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
+			<AText tag="div" :attributes="valueTextSettings">{{ value }}</AText>
 			<div class="btn_wrapper">
 				<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 			</div>
-			<AText tag="div" :attributes="descTextSettings">{{desc}}</AText>
+			<AText tag="div" :attributes="descTextSettings">{{ desc }}</AText>
 		</div>
 	</article>
 </template>
@@ -133,6 +133,10 @@ export default {
 	width: 210px;
 	position: relative;
 	max-width: 210px;
+	margin-bottom: -30px;
+	height: 240px;
+	margin-bottom: 25px;
+	cursor: pointer;
 }
 .top {
 	border-radius: 8px;
@@ -140,16 +144,16 @@ export default {
 	height: 165px;
 	box-shadow: 0px 6px 10px 0px rgba(158, 167, 200, 0.1);
 }
-.Popular {
+.popular {
 	background: var(--popular-color);
 }
-.Best {
+.best {
 	background: var(--best-color);
 }
-.New {
+.new {
 	background: var(--new-color);
 }
-.Trusted {
+.trusted {
 	background: var(--trusted-color);
 }
 .label {

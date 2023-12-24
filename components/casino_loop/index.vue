@@ -15,13 +15,13 @@
 				:min_dep="item.min_dep"
 				:vendors="item.vendors"
 				:payments="item.payments"
-				:rating="item.rating"
+				:rating="parseInt(item.rating)"
 				:refLinks="item.ref"
 			/>
 		</div>
 		<div class="items-more" v-if="hideBtnShowMore">
 			<AButton @onClick="postShowMore" :attributes="btnSettings">
-				{{ t('SHOW_MORE') }} <AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
+				{{ t('SHOW_MORE') }}
 			</AButton>
 		</div>
 	</div>
@@ -49,15 +49,10 @@ export default {
 			numberPostOnQuery: NumberPostOnQuery,
 			postCurrentPage: 1,
 			btnSettings: {
-				color: 'cairo',
+				color: 'cochin',
 				class: 'load_more',
 				weight: 'bold',
 				size: 'medium'
-			},
-			arrowSettings: {
-				width: '18px',
-				height: '18px',
-				class: 'arrow'
 			}
 		}
 	}
@@ -70,14 +65,15 @@ export default {
 	flex-wrap: wrap;
 }
 .items-more {
-	width: 820px;
+	width: 206px;
 	height: 52px;
-	margin-top: var(--l);
 	max-width: 100%;
+	margin: 0 auto;
+	margin-top: var(--l);
 }
-.arrow {
-	transform: rotate(90deg);
-	margin-left: 10px;
+.load_more {
+	border: 1px solid rgba(29, 33, 70, 1);
+	border-radius: 8px;
 }
 @media (max-width: 767px) {
 	.casino_loop {

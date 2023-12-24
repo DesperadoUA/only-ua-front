@@ -1,15 +1,17 @@
 <template>
-    <main class="bonuses_page">
-			<div class="container">
-				<AText tag="div" :attributes="titleSettings">{{ data.body.h1 }}</AText>
-			</div>
-            <div class="container bonus_container">
-                <BonusLoop :value="data.body.bonuses" />
-            </div>
+	<main class="bonuses_page">
+		<div class="container">
+			<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
+		</div>
+		<div class="container bonus_container">
+			<BonusLoop :value="data.body.bonuses" />
+		</div>
+		<section class="content_section">
 			<div class="container content_container">
 				<Content :value="data.body.content" />
 			</div>
-    </main>
+		</section>
+	</main>
 </template>
 
 <script>
@@ -22,12 +24,12 @@ import BonusLoop from '~/components/bonus_loop'
 export default {
 	name: 'bonuses-page',
 	mixins: [pageTemplate],
-	components: {BonusLoop},
+	components: { BonusLoop },
 	layout: 'default',
 	data: () => {
 		return {
 			titleSettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				size: 'x-large',
 				weight: 'bold',
 				transform: 'uppercase',
@@ -52,14 +54,12 @@ export default {
 </script>
 <style scoped>
 .bonuses_page {
-	background: url('/img/casinoPageBg.jpg') top center var(--colombo);
+	background: url('/img/hero_img.webp') top center #f5f6fa;
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
-.news_container {
-	display: flex;
-	justify-content: space-between;
-	margin-top: var(--l);
+.bonus_container {
+	margin-top: 60px;
 }
 .title {
 	margin-bottom: var(--m);

@@ -10,3 +10,10 @@ export default {
 	props: ['value']
 }
 </script>
+<style scoped>
+.cms {
+	background: white;
+	padding: 20px 15px;
+	border-radius: 12px;
+}
+</style>

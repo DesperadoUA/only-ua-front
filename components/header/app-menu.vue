@@ -51,15 +51,6 @@ export default {
 .header_menu_item {
 	padding-bottom: 10px;
 }
-.header_menu_item:has(.nuxt-link-active) {
-	border-bottom: 4px solid var(--calgary);
-}
-.header_menu_item:first-child:has(.nuxt-link-active) {
-	border-bottom: none;
-}
-.header_menu_item[data-active='true'] {
-	border-bottom: 4px solid var(--calgary) !important;
-}
 .icon {
 	transform: translateY(3px);
 }

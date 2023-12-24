@@ -9,7 +9,9 @@
 					<Menu v-if="getOptions" :value="getMenu" />
 				</div>
 			</div>
-			<div class="header_right"></div>
+			<div class="header_right">
+				<Search />
+			</div>
 		</div>
 		<div class="container" v-else>
 			<div class="header_mob_container">

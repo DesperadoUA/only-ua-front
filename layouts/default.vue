@@ -30,7 +30,7 @@ export default {
 	--cucuta: #1d2146;
 	--colombo: #08051a;
 	--cancun: #232036;
-	--cochin: #323234;
+	--cochin: rgba(29, 33, 70, 1);
 	--cardiff: rgba(0, 0, 0, 0.26);
 	--cleveland: #686a77;
 	--xxs: 2px;
@@ -46,6 +46,7 @@ export default {
 	--new-color: rgba(0, 163, 255, 1);
 	--popular-color: rgba(255, 0, 92, 1);
 	--best-color: #da00ed;
+	--blue-middle-opacity: rgba(23, 23, 42, 0.74);
 
 	/* Fonts */
 	--base-line-height: 1.7;
@@ -586,7 +587,6 @@ Common styles*/
 .load_more {
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: var(--s);
-	border: rgba(255, 255, 255, 0.05);
 	height: 100%;
 	display: flex;
 	width: 100%;
@@ -596,7 +596,7 @@ Common styles*/
 /* Content */
 .content_container {
 	padding-top: 40px;
-	padding-bottom: 20px;
+	padding-bottom: 50px;
 }
 .content_section {
 	background: #e4e5eb;

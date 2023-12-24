@@ -1,18 +1,18 @@
 <template>
 	<div>
 		<div class="bonus_loop">
-            <BonusMainCard
-                v-for="(item, index) in value"
-                :key="index"
-                :bg="item.bg"
-                :label="item.label"
-                :rating="item.rating"
-                :src="item.thumbnail"
-                :title="item.title"
-                :value="item.value"
-                :desc="item.desc"
-                :refLinks="item.ref"
-            />
+			<BonusMainCard
+				v-for="(item, index) in currentPosts"
+				:key="index"
+				:bg="item.bg"
+				:label="item.label"
+				:rating="parseInt(item.rating)"
+				:src="item.src"
+				:title="item.title"
+				:value="item.value"
+				:desc="item.desc"
+				:refLinks="item.ref"
+			/>
 		</div>
 		<div class="items-more" v-if="hideBtnShowMore">
 			<div class="btn_wrapper">
@@ -45,11 +45,11 @@ export default {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
 			btnSettings: {
-				color: 'cairo',
+				color: 'cochin',
 				class: 'load_more',
 				weight: 'bold',
 				size: 'medium'
-			},
+			}
 		}
 	}
 }
@@ -58,25 +58,23 @@ export default {
 .bonus_loop {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+.load_more {
+	border: 1px solid rgba(29, 33, 70, 1);
+	border-radius: 8px;
 }
 .items-more {
 	display: flex;
 	justify-content: center;
-	margin-top: var(--l);
 	height: 52px;
+	margin-top: 0px;
+	margin-bottom: 60px;
 }
 .btn_wrapper {
 	max-width: 272px;
-	width: 272px;
-}
-.load_more {
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: var(--s);
-	border: rgba(255, 255, 255, 0.05);
-}
-.arrow {
-	transform: rotate(90deg);
-	margin-left: 10px;
+	width: 206px;
 }
 @media (max-width: 767px) {
 	.bonus_item {

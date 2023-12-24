@@ -8,18 +8,18 @@
 				</div>
 			</div>
 			<div class="bonus_wrapper">
-				<Slider :settings="bonusSliderSettings">
+				<Slider :settings="bonusSliderSettings" v-if="data.body.bonuses.length">
 					<BonusMainCard
-                        v-for="(item, index) in data.body.bonuses"
-                        :key="index"
+						v-for="(item, index) in data.body.bonuses"
+						:key="index"
 						:bg="item.bg"
 						:label="item.label"
-						:rating="item.rating"
-						:src="item.thumbnail"
+						:rating="parseInt(item.rating)"
+						:src="item.src"
 						:title="item.title"
 						:value="item.value"
 						:desc="item.desc"
-                        :refLinks="item.ref"
+						:refLinks="item.ref"
 					/>
 				</Slider>
 			</div>
@@ -30,7 +30,9 @@
 						<CasinoLoop :value="data.body.casino" />
 					</template>
 					<template v-slot:right>
-						<aside class="aside"></aside>
+						<aside class="aside">
+							<Filters />
+						</aside>
 					</template>
 				</TwoContentContainer>
 			</div>
@@ -49,6 +51,7 @@ import Slider from '~/components/slider'
 import TwoContentContainer from '~/components/two_content_container/'
 import CasinoLoop from '~/components/casino_loop'
 import BonusMainCard from '~/components/bonus_loop/cards/main'
+import Filters from '~/components/filters'
 import pageTemplate from '~/mixins/pageTemplate'
 import device from '~/mixins/device'
 import helper from '~/helpers/helpers'
@@ -61,7 +64,8 @@ export default {
 		Slider,
 		TwoContentContainer,
 		CasinoLoop,
-		BonusMainCard
+		BonusMainCard,
+		Filters
 	},
 	layout: 'default',
 	data: () => {
@@ -156,7 +160,7 @@ export default {
 </script>
 <style scoped>
 .main_page {
-	background: url('/img/hero_img.webp') top center var(--cairo);
+	background: url('/img/hero_img.webp') top center #f5f6fa;
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
@@ -168,7 +172,7 @@ export default {
 	margin-top: 15px;
 }
 .aside {
-	padding-top: var(--xl);
+	padding-top: 40px;
 }
 .main_page_h1 {
 	line-height: 62px;
