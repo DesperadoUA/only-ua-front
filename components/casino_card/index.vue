@@ -42,20 +42,20 @@ export default {
 				class: 'object_fit_cover'
 			},
 			titleSettings: {
-				color: 'cairo',
+				color: 'cochin',
 				size: 'large',
 				weight: 'bold',
 				decoration: 'none',
 				class: 'title'
 			},
 			bonusNameSettings: {
-				color: 'cairo',
+				color: 'cleveland',
 				size: 'small',
 				weight: 'regular',
 				class: 'bonus_name'
 			},
 			bonusValueSettings: {
-				color: 'calgary',
+				color: 'cochin',
 				size: 'x-large',
 				weight: 'bold',
 				class: 'bonus_value'
@@ -154,7 +154,7 @@ export default {
 .right {
 	display: flex;
 	flex-grow: 1;
-	background: rgba(16, 13, 36, 0.7);
+	background: linear-gradient(270deg, #fff 0%, rgba(255, 255, 255, 0.9) 100%);
 	border-radius: var(--m);
 	padding: var(--m);
 	position: relative;

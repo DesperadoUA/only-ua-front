@@ -190,7 +190,6 @@ export default {
 	border-bottom: 1px solid #ced2e2;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	cursor: pointer;
 	position: relative;
 }
 .filter_item_title {
@@ -198,6 +197,7 @@ export default {
 	align-items: center;
 	position: relative;
 	padding-right: 30px;
+	cursor: pointer;
 }
 .filter_item_icon {
 	height: 18px;
@@ -248,5 +248,6 @@ export default {
 .filter_item_row_left {
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 </style>

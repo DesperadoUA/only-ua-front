@@ -5,14 +5,9 @@
 				<AText :attributes="textProvidersSettings">{{ t('VENDORS') }}</AText>
 			</div>
 			<div class="right">
-				<ALink
-					v-for="(item, index) in vendors"
-					:href="item.permalink"
-					:attributes="textProviderItemSettings"
-					:key="index"
-				>
-					<AImg :attributes="imgSettings" :src="item.icon" /> {{ item.title }}
-				</ALink>
+				<AText v-for="(item, index) in vendors" :attributes="textProviderItemSettings" :key="index">
+					{{ item.title }}
+				</AText>
 			</div>
 		</div>
 		<div class="row">
@@ -21,7 +16,7 @@
 			</div>
 			<div class="right">
 				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">
-					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+					{{ item.title }}
 				</AText>
 			</div>
 		</div>
@@ -31,7 +26,7 @@
 			</div>
 			<div class="right">
 				<AText :attributes="textPayoutSettings" v-for="(item, index) in payments" :key="index">
-					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+					{{ item.title }}
 				</AText>
 			</div>
 		</div>
@@ -41,7 +36,7 @@
 			</div>
 			<div class="right">
 				<AText :attributes="textItemSettings" v-for="(item, index) in currencies" :key="index">
-					<AImg :attributes="imgSettings" :src="item.thumbnail" /> {{ item.title }}
+					{{ item.title }}
 				</AText>
 			</div>
 		</div>
@@ -51,7 +46,7 @@
 			</div>
 			<div class="right">
 				<AText :attributes="textItemSettings" v-for="(item, index) in languages" :key="index">
-					<AImg :attributes="imgSettingsFlag" :src="item.thumbnail" /> {{ item.title }}
+					{{ item.title }}
 				</AText>
 			</div>
 		</div>
@@ -91,31 +86,31 @@ export default {
 	data() {
 		return {
 			textProvidersSettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				size: 'small',
 				weight: 'medium',
 				class: 'provider'
 			},
 			textDepositMethodsSettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				size: 'small',
 				weight: 'medium',
 				class: 'deposit_methods'
 			},
 			textWithoutMethodsSettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				size: 'small',
 				weight: 'medium',
 				class: 'without_methods'
 			},
 			textGameCurrencySettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				size: 'small',
 				weight: 'medium',
 				class: 'game_currency'
 			},
 			textLangSettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				size: 'small',
 				weight: 'medium',
 				class: 'lang'
@@ -132,19 +127,19 @@ export default {
 			},
 			textProviderItemSettings: {
 				class: 'item_provider',
-				color: 'cairo',
+				color: 'cucuta',
 				size: 'small',
 				weight: 'regular',
 				decoration: 'none'
 			},
 			textPayoutSettings: {
 				class: 'item_payout',
-				color: 'cairo',
+				color: 'cucuta',
 				weight: 'regular'
 			},
 			textItemSettings: {
 				class: 'item',
-				color: 'cairo',
+				color: 'cucuta',
 				weight: 'regular'
 			}
 		}
@@ -161,7 +156,7 @@ export default {
 	display: flex;
 	padding-bottom: 15px;
 	padding-top: 20px;
-	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-bottom: 1px solid #ced2e2;
 }
 .left {
 	width: 200px;
@@ -181,6 +176,10 @@ export default {
 .lang {
 	padding-left: 25px;
 	position: relative;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 600;
+	top: 6px;
 }
 .provider::before,
 .deposit_methods::before,
@@ -211,32 +210,31 @@ export default {
 .item_provider {
 	display: flex;
 	align-items: center;
-	padding: 5px 10px;
+	padding: 10px 12px;
 	border-radius: var(--s);
-	background: rgba(255, 255, 255, 0.1);
+	background: rgba(29, 33, 70, 0.06);
 	white-space: nowrap;
-	font-size: 10px;
+	font-size: 12px;
 }
 .logo {
 	display: block;
 	margin-right: 5px;
 }
 .item_payout {
-	font-size: 10px;
+	font-size: 12px;
 	display: flex;
 	align-items: center;
-	padding: 5px 10px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 10px 12px;
+	border: 1px solid rgba(29, 33, 70, 0.1);
 	border-radius: 10px;
 }
 .item {
-	font-size: 10px;
+	font-size: 12px;
 	display: flex;
 	align-items: center;
-	padding: 5px 10px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 10px 12px;
+	background: rgba(29, 33, 70, 0.06);
 	border-radius: 10px;
-	background: rgba(255, 255, 255, 0.06);
 }
 @media (max-width: 767px) {
 	.row {

@@ -13,22 +13,14 @@
 					<AText tag="div" :attributes="titleSettings">{{ title }}</AText>
 				</div>
 				<div>
-					<AText tag="div" :attributes="descTextSettings">{{ desc }}</AText>
-				</div>
-				<div>
 					<AText tag="div" :attributes="valueTextSettings">{{ value }}</AText>
 				</div>
 			</div>
 			<div class="action">
 				<AText>
-					<AImg :attributes="arrowSettings" src="/img/arrowGreen.svg" />
+					<AImg :attributes="arrowSettings" src="/img/filters_arrow.png" />
 				</AText>
 			</div>
-		</div>
-		<div class="bottom">
-			<AText tag="div" :attributes="bottomTextSettings"
-				>Min. deposit: {{ min_dep }} &middot; Wagering: {{ wager }}</AText
-			>
 		</div>
 	</article>
 </template>
@@ -47,32 +39,20 @@ export default {
 			},
 			arrowSettings: {
 				width: '26px',
-				height: '26px'
+				height: '26px',
+				class: 'arrow'
 			},
 			titleSettings: {
-				color: 'cairo',
+				color: 'cleveland',
 				size: 'small',
-				weight: 'bold',
 				decoration: 'none',
 				class: 'title'
 			},
-			descTextSettings: {
-				color: 'cairo',
-				size: 'small',
-				weight: 'regular',
-				class: 'desc'
-			},
 			valueTextSettings: {
-				color: 'calgary',
+				color: 'cucuta',
 				size: 'large',
 				weight: 'bold',
 				transform: 'uppercase'
-			},
-			bottomTextSettings: {
-				color: 'cairo',
-				size: 'small',
-				weight: 'regular',
-				align: 'center'
 			}
 		}
 	},
@@ -83,25 +63,7 @@ export default {
 				return ''
 			}
 		},
-		desc: {
-			type: String,
-			default() {
-				return ''
-			}
-		},
 		value: {
-			type: String,
-			default() {
-				return ''
-			}
-		},
-		min_dep: {
-			type: String,
-			default() {
-				return ''
-			}
-		},
-		wager: {
 			type: String,
 			default() {
 				return ''
@@ -121,6 +83,8 @@ export default {
 	width: 356px;
 	max-width: 100%;
 	cursor: pointer;
+	border-bottom: 2px solid #ced2e2;
+	padding-bottom: 5px;
 }
 .wrapper {
 	position: relative;
@@ -139,7 +103,6 @@ export default {
 	width: 90px;
 	min-width: 90px;
 	align-items: center;
-	justify-content: center;
 	display: flex;
 }
 .right {
@@ -164,6 +127,9 @@ export default {
 	padding: var(--s);
 	border-bottom-left-radius: 14px;
 	border-bottom-right-radius: 14px;
+}
+.arrow {
+	transform: rotate(90deg);
 }
 @media (max-width: 767px) {
 	.item {

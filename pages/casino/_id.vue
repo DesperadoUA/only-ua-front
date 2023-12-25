@@ -11,7 +11,7 @@
 									:src="data.body.thumbnail"
 									:bonus_value="data.body.bonus_value"
 									:title="data.body.title"
-									:rating="data.body.rating"
+									:rating="parseInt(data.body.rating)"
 									:bg="data.body.color"
 									:label="data.body.label"
 									:refLinks="data.body.ref"
@@ -27,9 +27,9 @@
 								/>
 							</div>
 							<div class="casino_slot_container" v-if="data.body.games.length">
-								<AText tag="div" :attributes="titleSlotsSettings"
-									>{{ t('BEST_GAMES_IN_CASINO') }} {{ data.body.title }}</AText
-								>
+								<AText tag="div" :attributes="titleSlotsSettings">
+									{{ t('BEST_GAMES_IN_CASINO') }} {{ data.body.title }}
+								</AText>
 								<div class="slot_loop">
 									<GameMainCard
 										v-for="(item, index) in gamesLoop"
@@ -44,18 +44,14 @@
 					</template>
 					<template v-slot:right>
 						<aside class="aside">
-							<AText tag="div" :attributes="asideContainerTitle">{{ t('RECOMMENDED_BONUSES') }}</AText>
-							<div class="aside_bonus_container">
-								<div class="aside_bonus_wrapper" v-for="(item, index) in data.body.bonuses" :key="index">
-									<BonusAsideCard
-										:src="item.thumbnail"
-										:title="item.title"
-										:desc="item.short_desc"
-										:value="item.bonus"
-										:min_dep="item.min_deposit"
-										:wager="item.wagering"
-										:refLinks="item.casino.ref"
-									/>
+							<div class="aside_bonuses">
+								<AText tag="div" :attributes="asideContainerTitle"
+									>{{ t('OTHER_BONUSES') }} {{ data.body.title }}</AText
+								>
+								<div class="aside_bonus_container">
+									<div class="aside_bonus_wrapper" v-for="(item, index) in data.body.bonuses" :key="index">
+										<BonusAsideCard :src="item.src" :title="item.title" :value="item.value" :refLinks="item.ref" />
+									</div>
 								</div>
 							</div>
 						</aside>
@@ -63,9 +59,11 @@
 				</TwoContentContainer>
 			</div>
 		</div>
-		<div class="container content_container">
-			<Content :value="data.body.content" />
-		</div>
+		<section class="content_section">
+			<div class="container content_container">
+				<Content :value="data.body.content" />
+			</div>
+		</section>
 	</main>
 </template>
 
@@ -95,12 +93,12 @@ export default {
 	data: () => {
 		return {
 			titleSettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				weight: 'bold',
 				class: 'title'
 			},
 			titleCharactersSettings: {
-				color: 'cairo',
+				color: 'cucuta',
 				weight: 'bold',
 				size: 'x-large',
 				class: 'detail_title'
@@ -111,8 +109,8 @@ export default {
 				class: 'slots_title'
 			},
 			asideContainerTitle: {
-				weight: 'bold',
-				color: 'cairo',
+				color: 'cleveland',
+				align: 'center',
 				size: 'large'
 			}
 		}
@@ -140,7 +138,7 @@ export default {
 			const data = body
 			data.body = data.body
 			data.body.headerLinks = helper.hreflang(data.body.hreflang)
-			store.dispatch('options/setHrefLang', data.body.headerLinks)
+			//store.dispatch('options/setHrefLang', data.body.headerLinks)
 			return { data }
 		}
 	}
@@ -148,7 +146,7 @@ export default {
 </script>
 <style scoped>
 .casino_page {
-	background: url('/img/mobHeroBg.webp') top center rgba(16, 13, 36, 1);
+	background: url('/img/mobHeroBg.webp') top center #f5f6fa;
 	background-repeat: no-repeat;
 	padding-top: 165px;
 }
@@ -170,7 +168,8 @@ export default {
 .casino_characters_container,
 .casino_slot_container {
 	border: 1px solid rgba(255, 255, 255, 0.15);
-	background: rgba(27, 24, 49, 1);
+	background: #fff;
+	box-shadow: 0px 6px 10px 0px rgba(158, 167, 200, 0.1);
 	margin-top: 40px;
 	border-radius: 20px;
 	padding: 32px 22px;
@@ -191,6 +190,16 @@ export default {
 .content_wrapper {
 	background: rgba(8, 5, 26, 1);
 	padding: 60px 0px;
+}
+.aside_bonuses {
+	background: white;
+	border-radius: 14px;
+	padding: 20px 12px;
+	margin-top: 20px;
+	box-sizing: border-box;
+}
+.aside_bonus_wrapper {
+	max-width: 100%;
 }
 @media (max-width: 767px) {
 	.title {
