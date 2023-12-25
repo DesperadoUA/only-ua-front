@@ -189,7 +189,7 @@ export default {
 			providerLinkSettings: {
 				class: 'provider_link'
 			},
-			paymentsLinkSettings: {
+			paymentLinkSettings: {
 				class: 'payment_link'
 			},
 			providerSettings: {
@@ -197,7 +197,7 @@ export default {
 				width: '54px',
 				height: '34px'
 			},
-			paymentsSettings: {
+			paymentSettings: {
 				class: 'payment_img',
 				width: '54px',
 				height: '34px'

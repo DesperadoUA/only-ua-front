@@ -11,129 +11,53 @@
 			<div class="current_filters_clear">Clear All</div>
 		</div>
 		<div class="filters_container">
-			<div class="filter_item">
-				<div class="filter_item_title">
-					<div class="filter_item_icon">
-						<AImg :attributes="imgSettings" src="/img/casino_type_icon.png" />
-					</div>
-					<div class="filter_item_text">
-						Тип казино
-					</div>
-					<div class="filter_item_arrow">
-						<AImg :attributes="imgSettings" src="/img/filters_arrow.png" />
-					</div>
-				</div>
-				<div class="filter_item_body">
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox active"></div>
-							Mobile
-						</div>
-						<div class="filter_item_row_right">120</div>
-					</div>
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox"></div>
-							New
-						</div>
-						<div class="filter_item_row_right">20</div>
-					</div>
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox"></div>
-							VIP
-						</div>
-						<div class="filter_item_row_right">10</div>
-					</div>
-				</div>
-			</div>
-			<div class="filter_item">
-				<div class="filter_item_title">
-					<div class="filter_item_icon">
-						<AImg :attributes="imgSettings" src="/img/casino_type_icon.png" />
-					</div>
-					<div class="filter_item_text">
-						Тип казино
-					</div>
-					<div class="filter_item_arrow">
-						<AImg :attributes="imgSettings" src="/img/filters_arrow.png" />
-					</div>
-				</div>
-				<div class="filter_item_body">
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox active"></div>
-							Mobile
-						</div>
-						<div class="filter_item_row_right">120</div>
-					</div>
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox"></div>
-							New
-						</div>
-						<div class="filter_item_row_right">20</div>
-					</div>
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox"></div>
-							VIP
-						</div>
-						<div class="filter_item_row_right">10</div>
-					</div>
-				</div>
-			</div>
-			<div class="filter_item">
-				<div class="filter_item_title">
-					<div class="filter_item_icon">
-						<AImg :attributes="imgSettings" src="/img/casino_type_icon.png" />
-					</div>
-					<div class="filter_item_text">
-						Тип казино
-					</div>
-					<div class="filter_item_arrow">
-						<AImg :attributes="imgSettings" src="/img/filters_arrow.png" />
-					</div>
-				</div>
-				<div class="filter_item_body">
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox active"></div>
-							Mobile
-						</div>
-						<div class="filter_item_row_right">120</div>
-					</div>
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox"></div>
-							New
-						</div>
-						<div class="filter_item_row_right">20</div>
-					</div>
-					<div class="filter_item_row">
-						<div class="filter_item_row_left">
-							<div class="filter_checkbox"></div>
-							VIP
-						</div>
-						<div class="filter_item_row_right">10</div>
-					</div>
-				</div>
-			</div>
+			<FilterItem title="Провайдеры" src="/img/providers.png" :value="vendors" filterKey="vendors" />
+			<FilterItem title="Методи депозиту" src="/img/payment_icon.png" :value="payments" filterKey="payments" />
+			<FilterItem title="Мова сайту" src="/img/lang.png" :value="langs" filterKey="langs" />
+			<FilterItem title="Ігрові валюти" src="/img/game_currency.png" :value="currency" filterKey="currency" />
 		</div>
 	</div>
 </template>
 
 <script>
 import components from '~/mixins/components'
+import FilterItem from './filterItem'
 export default {
 	name: 'filters',
 	mixins: [components],
+	components: { FilterItem },
 	data: () => {
 		return {
 			imgSettings: {
 				width: '18px',
 				height: '18px'
-			}
+			},
+			currentFilters: [{ typeCasino: 'New' }, { typeCasino: 'Mobile' }],
+			vendors: [
+				{ title: 'Ezugi', total: 5 },
+				{ title: 'Yggdrasil', total: 3 },
+				{ title: 'Microgaming', total: 6 },
+				{ title: 'Kalamba', total: 1 }
+			],
+			payments: [
+				{ title: 'Visa', total: 5 },
+				{ title: 'MasterCard', total: 3 },
+				{ title: 'Neosurf', total: 6 },
+				{ title: 'EcoPayz', total: 1 }
+			],
+			langs: [
+				{ title: 'English', total: 5 },
+				{ title: 'Українська', total: 3 },
+				{ title: 'Русский', total: 6 }
+			],
+			currency: [
+				{ title: '$ - USD', total: 5 },
+				{ title: '€ - EUR', total: 3 },
+				{ title: '₽ - RUB', total: 6 },
+				{ title: '₸ - KZT', total: 6 },
+				{ title: 'zł - PLN', total: 6 },
+				{ title: '₴ - UAH', total: 6 }
+			]
 		}
 	}
 }
@@ -185,69 +109,5 @@ export default {
 	border: none;
 	cursor: pointer;
 	background: url('/img/close_cross.png') center center;
-}
-.filter_item {
-	border-bottom: 1px solid #ced2e2;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	position: relative;
-}
-.filter_item_title {
-	display: flex;
-	align-items: center;
-	position: relative;
-	padding-right: 30px;
-	cursor: pointer;
-}
-.filter_item_icon {
-	height: 18px;
-	margin-right: 10px;
-}
-.filter_item_arrow {
-	position: absolute;
-	top: 4px;
-	right: 0;
-	width: 20px;
-	height: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-.filter_item_body {
-	padding-left: 25px;
-	gap: 5px;
-	display: flex;
-	flex-wrap: wrap;
-}
-.filter_item_row {
-	display: flex;
-	width: 100%;
-	color: #686a77;
-	font-size: 14px;
-	font-style: normal;
-	font-weight: 400;
-	display: flex;
-	justify-content: space-between;
-}
-.filter_item_row:first-child {
-	margin-top: 15px;
-}
-.filter_checkbox {
-	width: 18px;
-	height: 18px;
-	margin-right: 5px;
-	border: 1px solid rgba(206, 210, 226, 1);
-	border-radius: 4px;
-	cursor: pointer;
-}
-.filter_checkbox.active {
-	background: url('/img/filter_active.png') rgba(2, 203, 70, 1);
-	background-position: center center;
-	background-repeat: no-repeat;
-}
-.filter_item_row_left {
-	display: flex;
-	align-items: center;
-	cursor: pointer;
 }
 </style>
