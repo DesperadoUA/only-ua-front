@@ -41,7 +41,7 @@ export default {
 		onActive() {
 			this.active = !this.active
 			if (this.active) {
-				let currentValue = this.$route.query[this.filterKey]
+				const currentValue = this.$route.query[this.filterKey]
 				if (!currentValue) {
 					this.$router.push({ query: { ...this.$route.query, [this.filterKey]: this.title } })
 				} else {
