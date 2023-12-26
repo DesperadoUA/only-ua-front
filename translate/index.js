@@ -675,10 +675,5 @@ export default {
         RU: 'Post not found',
         UA: 'Post not found',
         EN: 'Post not found'
-    },
-    OTHER_BONUSES: {
-        RU: 'Другие бонусы от',
-        UA: 'Інші бонусы від',
-        EN: 'Other bonuses from'
     }
 }
