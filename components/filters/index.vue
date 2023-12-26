@@ -3,10 +3,9 @@
 		<div class="current_filters">
 			<div class="current_filters_ttl">Sorted by</div>
 			<div class="current_filters_container">
-				<div class="current_filters_item">New <button class="current_filters_remove"></button></div>
-				<div class="current_filters_item">Mobile <button class="current_filters_remove"></button></div>
-				<div class="current_filters_item">Quality Casinos <button class="current_filters_remove"></button></div>
-				<div class="current_filters_item">VIP <button class="current_filters_remove"></button></div>
+				<div class="current_filters_item" v-for="item in currentFilters" :key="item.value">
+					{{ item.value }} <button class="current_filters_remove" @click="remove(item.filterKey, item.value)" />
+				</div>
 			</div>
 			<div class="current_filters_clear" @click="clearGetParams">Clear All</div>
 		</div>
@@ -32,7 +31,7 @@ export default {
 				width: '18px',
 				height: '18px'
 			},
-			currentFilters: [{ typeCasino: 'New' }, { typeCasino: 'Mobile' }],
+			currentFilters: [],
 			vendors: [
 				{ title: 'Ezugi', total: 5 },
 				{ title: 'Yggdrasil', total: 3 },
@@ -60,11 +59,40 @@ export default {
 			]
 		}
 	},
-    methods: {
-        clearGetParams() {
-            this.$router.replace({'query': null})
-        }
-    }
+	methods: {
+		clearGetParams() {
+			this.$router.replace({ query: null })
+		},
+		remove(filterKey, title) {
+			const arr = this.$route.query[filterKey].split(',')
+			const filter = arr.filter(item => item !== title)
+			console.log(filter, title)
+			if (!filter.length) {
+				this.$router.push({ query: { ...this.$route.query, [filterKey]: '' } })
+			} else {
+				this.$router.push({ query: { ...this.$route.query, [filterKey]: filter.join(',') } })
+			}
+		}
+	},
+	watch: {
+		'$route.params.search': {
+			handler: function() {
+				const filterList = []
+				const filterKeys = Object.keys(this.$route.query)
+				if (filterKeys) {
+					filterKeys.forEach(key => {
+						const arr = this.$route.query[key].split(',')
+						arr.forEach(item => {
+							if (item) filterList.push({ filterKey: key, value: item })
+						})
+					})
+				}
+				this.currentFilters = filterList
+			},
+			deep: true,
+			immediate: true
+		}
+	}
 }
 </script>
 <style scoped>

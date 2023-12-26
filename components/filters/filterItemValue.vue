@@ -41,23 +41,22 @@ export default {
 		onActive() {
 			this.active = !this.active
 			if (this.active) {
-				console.log(this.$route.fullPath)
 				let currentValue = this.$route.query[this.filterKey]
 				if (!currentValue) {
 					this.$router.push({ query: { ...this.$route.query, [this.filterKey]: this.title } })
 				} else {
-                    const arr = this.$route.query[this.filterKey].split(',')
-                    arr.push(this.title)
-                    this.$router.push({ query: { ...this.$route.query, [this.filterKey]: arr.join(',') } })
+					const arr = this.$route.query[this.filterKey].split(',')
+					arr.push(this.title)
+					this.$router.push({ query: { ...this.$route.query, [this.filterKey]: arr.join(',') } })
 				}
 			} else {
-                const arr = this.$route.query[this.filterKey].split(',')
-                const filter = arr.filter(item => item !== this.title)
-                if(!filter.length) {
-                    delete this.$route.query[this.filterKey]
-                } else {
-                    this.$router.push({ query: { ...this.$route.query, [this.filterKey]: filter.join(',') } })
-                }
+				const arr = this.$route.query[this.filterKey].split(',')
+				const filter = arr.filter(item => item !== this.title)
+				if (!filter.length) {
+					this.$router.push({ query: { ...this.$route.query, [this.filterKey]: '' } })
+				} else {
+					this.$router.push({ query: { ...this.$route.query, [this.filterKey]: filter.join(',') } })
+				}
 			}
 		}
 	}
