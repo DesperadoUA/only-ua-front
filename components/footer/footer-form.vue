@@ -22,7 +22,7 @@ export default {
 	data: () => {
 		return {
 			btnSettings: {
-				bg: 'calgary', color: 'cochin', borderRadius: 's', weight: 'semi-bold'
+				bg: 'calgary', color: 'cleveland', borderRadius: 's', weight: 'semi-bold'
 			},
 			titleSettings: {
 				color: 'cairo',

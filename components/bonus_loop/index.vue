@@ -45,7 +45,7 @@ export default {
 		return {
 			numberPostOnQuery: NumberPostOnQuery,
 			btnSettings: {
-				color: 'cochin',
+				color: 'cleveland',
 				class: 'load_more',
 				weight: 'bold',
 				size: 'medium'
@@ -62,7 +62,7 @@ export default {
 	margin-bottom: 30px;
 }
 .load_more {
-	border: 1px solid rgba(29, 33, 70, 1);
+	border: 1px solid var(--cucuta);
 	border-radius: 8px;
 }
 .items-more {

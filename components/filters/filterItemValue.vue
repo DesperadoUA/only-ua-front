@@ -1,7 +1,7 @@
 <template>
 	<div class="filter_item_row">
 		<div class="filter_item_row_left" @click="onActive">
-			<div class="filter_checkbox" :class="{ active: active }"></div>
+			<div class="filter_checkbox" :class="{ active: active }" />
 			{{ title }}
 		</div>
 		<div class="filter_item_row_right">
@@ -71,7 +71,6 @@ export default {
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
-	display: flex;
 	justify-content: space-between;
 }
 .filter_item_row:first-child {
@@ -86,9 +85,7 @@ export default {
 	cursor: pointer;
 }
 .filter_checkbox.active {
-	background: url('/img/filter_active.png') rgba(2, 203, 70, 1);
-	background-position: center center;
-	background-repeat: no-repeat;
+	background: url('/img/filter_active.png') rgba(2, 203, 70, 1) center center no-repeat;
 }
 .filter_item_row_left {
 	display: flex;

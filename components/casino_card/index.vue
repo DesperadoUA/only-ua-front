@@ -42,7 +42,7 @@ export default {
 				class: 'object_fit_cover'
 			},
 			titleSettings: {
-				color: 'cochin',
+				color: 'cleveland',
 				size: 'large',
 				weight: 'bold',
 				decoration: 'none',
@@ -55,14 +55,14 @@ export default {
 				class: 'bonus_name'
 			},
 			bonusValueSettings: {
-				color: 'cochin',
+				color: 'cleveland',
 				size: 'x-large',
 				weight: 'bold',
 				class: 'bonus_value'
 			},
 			btnSettings: {
 				bg: 'calgary',
-				color: 'cochin',
+				color: 'cleveland',
 				borderRadius: 's',
 				weight: 'semi-bold'
 			},

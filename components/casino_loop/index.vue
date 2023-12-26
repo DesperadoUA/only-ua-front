@@ -49,7 +49,7 @@ export default {
 			numberPostOnQuery: NumberPostOnQuery,
 			postCurrentPage: 1,
 			btnSettings: {
-				color: 'cochin',
+				color: 'cleveland',
 				class: 'load_more',
 				weight: 'bold',
 				size: 'medium'

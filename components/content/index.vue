@@ -7,12 +7,19 @@
 <script>
 export default {
 	name: 'main_content',
-	props: ['value']
+	props: {
+        value: {
+            type: String,
+            default() {
+                return ''
+            }
+        }
+    }
 }
 </script>
 <style scoped>
 .cms {
-	background: white;
+	background: var(--cairo);
 	padding: 20px 15px;
 	border-radius: 12px;
 }

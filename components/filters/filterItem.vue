@@ -73,7 +73,7 @@ export default {
 </script>
 <style scoped>
 .filter_item {
-	border-bottom: 1px solid #ced2e2;
+	border-bottom: 1px solid var(--cochin);
 	padding-top: 20px;
 	padding-bottom: 20px;
 	position: relative;

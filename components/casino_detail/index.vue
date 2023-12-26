@@ -148,10 +148,6 @@ export default {
 </script>
 
 <style scoped>
-.flag_icon {
-	margin-right: 5px;
-	display: block;
-}
 .row {
 	display: flex;
 	padding-bottom: 15px;

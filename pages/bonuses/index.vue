@@ -54,8 +54,7 @@ export default {
 </script>
 <style scoped>
 .bonuses_page {
-	background: url('/img/hero_img.webp') top center #f5f6fa;
-	background-repeat: no-repeat;
+	background: url('/img/hero_img.webp') top center #f5f6fa no-repeat;
 	padding-top: 165px;
 }
 .bonus_container {

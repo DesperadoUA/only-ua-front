@@ -76,7 +76,7 @@ export default {
 			},
 			btnSettings: {
 				bg: 'calgary',
-				color: 'cochin',
+				color: 'cleveland',
 				borderRadius: 's',
 				weight: 'semi-bold'
 			}

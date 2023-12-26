@@ -30,11 +30,6 @@
 			<div class="container content_container" v-if="data.body.content">
 				<Content :value="data.body.content" />
 			</div>
-			<div class="container" v-if="data.body.faq.length">
-				<div class="faq_container">
-					<Faq :value="data.body.faq" />
-				</div>
-			</div>
 			<SlotPopUp
 				v-if="isShowDemo"
 				:src="data.body.iframe"
@@ -50,7 +45,6 @@ import pageTemplate from '~/mixins/pageTemplate'
 import SlotCard from '~/components/slot_card'
 import SlotSymbols from '~/components/slot_symbols'
 import SlotScreenshots from '~/components/slot_screenshots'
-import Faq from '~/components/faq'
 import SlotPopUp from '~/components/slot_popup'
 import helper from '~/helpers/helpers'
 
@@ -61,7 +55,6 @@ export default {
 		SlotCard,
 		SlotSymbols,
 		SlotScreenshots,
-		Faq,
 		SlotPopUp
 	},
 	layout: 'default',

@@ -30,7 +30,7 @@ export default {
 	--cucuta: #1d2146;
 	--colombo: #08051a;
 	--cancun: #232036;
-	--cochin: rgba(104, 106, 119, 1);
+	--cochin: #ced2e2;
 	--cardiff: rgba(0, 0, 0, 0.26);
 	--cleveland: #686a77;
 	--xxs: 2px;

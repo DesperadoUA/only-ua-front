@@ -8,7 +8,7 @@
 				<div class="current_filters_item">Quality Casinos <button class="current_filters_remove"></button></div>
 				<div class="current_filters_item">VIP <button class="current_filters_remove"></button></div>
 			</div>
-			<div class="current_filters_clear">Clear All</div>
+			<div class="current_filters_clear" @click="clearGetParams">Clear All</div>
 		</div>
 		<div class="filters_container">
 			<FilterItem title="Провайдеры" src="/img/providers.png" :value="vendors" filterKey="vendors" />
@@ -59,18 +59,23 @@ export default {
 				{ title: '₴ - UAH', total: 6 }
 			]
 		}
-	}
+	},
+    methods: {
+        clearGetParams() {
+            this.$router.replace({'query': null})
+        }
+    }
 }
 </script>
 <style scoped>
 .filters {
-	background: white;
+	background: var(--cairo);
 	border-radius: 12px;
 	padding: 20px 10px;
 }
 .current_filters_ttl,
 .current_filters_clear {
-	color: #686a77;
+	color: var(--cleveland);
 	text-align: center;
 	font-size: 14px;
 	font-style: normal;
@@ -84,7 +89,7 @@ export default {
 	margin-top: 15px;
 }
 .current_filters {
-	border-bottom: 1px solid #ced2e2;
+	border-bottom: 1px solid var(--cochin);
 }
 .current_filters_container {
 	display: flex;
@@ -97,7 +102,7 @@ export default {
 	padding: 4px 8px;
 	display: flex;
 	align-items: center;
-	color: #1d2146;
+	color: var(--cucuta);
 	font-size: 16px;
 	font-weight: 400;
 }
@@ -105,7 +110,6 @@ export default {
 	width: 18px;
 	height: 18px;
 	margin-left: 7px;
-	background: none;
 	border: none;
 	cursor: pointer;
 	background: url('/img/close_cross.png') center center;
