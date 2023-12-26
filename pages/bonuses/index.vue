@@ -1,11 +1,11 @@
 <template>
 	<main class="bonuses_page">
-		<div class="container">
+		<section class="container">
 			<AText tag="h1" :attributes="titleSettings">{{ data.body.h1 }}</AText>
-		</div>
-		<div class="container bonus_container">
+		</section>
+		<section class="container bonus_container">
 			<BonusLoop :value="data.body.bonuses" />
-		</div>
+		</section>
 		<section class="content_section">
 			<div class="container content_container">
 				<Content :value="data.body.content" />
