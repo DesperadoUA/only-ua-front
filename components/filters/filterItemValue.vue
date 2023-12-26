@@ -46,10 +46,18 @@ export default {
 				if (!currentValue) {
 					this.$router.push({ query: { ...this.$route.query, [this.filterKey]: this.title } })
 				} else {
-					//this.$route.fullPath = `${this.$route.fullPath},${this.title}`
+                    const arr = this.$route.query[this.filterKey].split(',')
+                    arr.push(this.title)
+                    this.$router.push({ query: { ...this.$route.query, [this.filterKey]: arr.join(',') } })
 				}
 			} else {
-				console.log(this.filterKey, this.title, 'action remove')
+                const arr = this.$route.query[this.filterKey].split(',')
+                const filter = arr.filter(item => item !== this.title)
+                if(!filter.length) {
+                    delete this.$route.query[this.filterKey]
+                } else {
+                    this.$router.push({ query: { ...this.$route.query, [this.filterKey]: filter.join(',') } })
+                }
 			}
 		}
 	}
