@@ -45,12 +45,17 @@
 					<template v-slot:right>
 						<aside class="aside">
 							<div class="aside_bonuses">
-								<AText tag="div" :attributes="asideContainerTitle"
-									>{{ t('OTHER_BONUSES') }} {{ data.body.title }}</AText
-								>
+								<AText tag="div" :attributes="asideContainerTitle">
+                                    {{ t('OTHER_BONUSES') }} {{ data.body.title }}
+                                </AText>
 								<div class="aside_bonus_container">
 									<div class="aside_bonus_wrapper" v-for="(item, index) in data.body.bonuses" :key="index">
-										<BonusAsideCard :src="item.src" :title="item.title" :value="item.value" :refLinks="item.ref" />
+										<BonusAsideCard
+                                            :src="item.src"
+                                            :title="item.title"
+                                            :value="item.value"
+                                            :refLinks="item.ref"
+                                        />
 									</div>
 								</div>
 							</div>
@@ -146,8 +151,7 @@ export default {
 </script>
 <style scoped>
 .casino_page {
-	background: url('/img/mobHeroBg.webp') top center #f5f6fa;
-	background-repeat: no-repeat;
+	background: url('/img/mobHeroBg.webp') top center #f5f6fa no-repeat;
 	padding-top: 165px;
 }
 .title {
