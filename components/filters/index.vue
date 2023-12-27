@@ -66,7 +66,6 @@ export default {
 		remove(filterKey, title) {
 			const arr = this.$route.query[filterKey].split(',')
 			const filter = arr.filter(item => item !== title)
-			console.log(filter, title)
 			if (!filter.length) {
 				this.$router.push({ query: { ...this.$route.query, [filterKey]: '' } })
 			} else {

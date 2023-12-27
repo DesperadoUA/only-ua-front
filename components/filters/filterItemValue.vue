@@ -59,6 +59,21 @@ export default {
 				}
 			}
 		}
+	},
+	watch: {
+		'$route.params.search': {
+			handler: function() {
+				const filterValue = this.$route.query[this.filterKey]
+				if (filterValue) {
+					const filterList = filterValue.split(',')
+					if (!filterList.includes(this.title)) this.active = false
+				} else {
+					this.active = false
+				}
+			},
+			deep: true,
+			immediate: true
+		}
 	}
 }
 </script>
