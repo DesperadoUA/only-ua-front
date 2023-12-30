@@ -34,7 +34,7 @@ export default {
 }
 @media (max-width: 767px) {
 	.slick-list {
-		padding-left: 0px !important;
+		padding-left: 35% !important;
 	}
 }
 

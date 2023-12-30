@@ -10,15 +10,20 @@
 			<div class="current_filters_clear" @click="clearGetParams">Clear All</div>
 		</div>
 		<div class="filters_container">
-			<FilterItem title="Провайдеры" src="/img/providers.png" :value="vendors" :filterKey="vendorsFilterKey" />
+			<FilterItem :title="t('VENDORS')" src="/img/providers.png" :value="vendors" :filterKey="vendorsFilterKey" />
 			<FilterItem
-				title="Методи депозиту"
+				:title="t('DEPOSIT_METHODS')"
 				src="/img/payment_icon.png"
 				:value="payments"
 				:filterKey="paymentsFilterKey"
 			/>
-			<FilterItem title="Мова сайту" src="/img/lang.png" :value="langs" :filterKey="langsFilterKey" />
-			<FilterItem title="Ігрові валюти" src="/img/game_currency.png" :value="currency" :filterKey="currencyFilterKey" />
+			<FilterItem :title="t('SITE_LANG')" src="/img/lang.png" :value="langs" :filterKey="langsFilterKey" />
+			<FilterItem
+				:title="t('GAME_CURRENCY')"
+				src="/img/game_currency.png"
+				:value="currency"
+				:filterKey="currencyFilterKey"
+			/>
 		</div>
 	</div>
 </template>

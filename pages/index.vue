@@ -24,7 +24,7 @@
 				</Slider>
 			</div>
 			<div class="main_container">
-				<TwoContentContainer>
+				<TwoContentContainer :revers="device !== 'DC'">
 					<template v-slot:left>
 						<AText tag="div" :attributes="mainContainerTitle">{{ t('ONLINE_CASINO') }}</AText>
 						<CasinoLoop :value="currentCasinos" />
@@ -102,7 +102,7 @@ export default {
 					{
 						breakpoint: 600,
 						settings: {
-							slidesToShow: 1,
+							slidesToShow: 1.5,
 							centerMode: false,
 							initialSlide: -1
 						}
@@ -110,7 +110,7 @@ export default {
 					{
 						breakpoint: 480,
 						settings: {
-							slidesToShow: 1,
+							slidesToShow: 1.5,
 							centerMode: false,
 							initialSlide: -1
 						}
@@ -138,8 +138,7 @@ export default {
 				height: '18px',
 				class: 'arrow'
 			},
-			currentCasinos: [],
-			allCasinos: []
+			currentCasinos: []
 		}
 	},
 	computed: {
@@ -233,10 +232,14 @@ export default {
 		line-height: 40px;
 	}
 	.aside {
-		padding-top: 30px;
+		padding-top: 0px;
+		padding-bottom: 30px;
 	}
 	.main_page {
-		padding-top: 150px;
+		padding-top: 130px;
+	}
+	.bonus_wrapper {
+		margin-top: 50px;
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {

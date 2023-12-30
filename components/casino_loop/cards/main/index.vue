@@ -80,14 +80,9 @@
 				<div class="providers">
 					<div class="providers_icon"></div>
 					<div class="providers_loop">
-						<ALink
-							v-for="(item, index) in vendors.slice(0, 4)"
-							:href="item.permalink"
-							:attributes="providerLinkSettings"
-							:key="index"
-						>
+						<div v-for="(item, index) in vendors.slice(0, 4)" :attributes="providerLinkSettings" :key="index">
 							<AImg :attributes="providerSettings" :src="item.thumbnail" />
-						</ALink>
+						</div>
 					</div>
 					<div class="providers_total">
 						<AText tag="span">+ {{ vendors.length }}</AText>
@@ -106,7 +101,7 @@
 						<AButton :attributes="btnSettings" @onClick="refActivate(refLinks)">{{ t('GO_TO') }}</AButton>
 					</div>
 					<ALink :href="link" :attributes="readMoreLinkSettings"
-						><AImg :attributes="searchSettings" src="/img/search.png" />
+						><AImg :attributes="searchSettings" src="/img/read_more_arrow.png" />
 					</ALink>
 				</div>
 			</div>
@@ -526,7 +521,7 @@ export default {
 	}
 	.details_btn {
 		font-size: 14px;
-		color: var(--cairo);
+		color: var(--cucuta);
 		cursor: pointer;
 		position: relative;
 		padding-right: 24px;

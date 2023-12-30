@@ -605,6 +605,9 @@ Common styles*/
 	padding-bottom: 60px;
 }
 @media (max-width: 767px) {
+	.content_section {
+		padding: 40px 15px;
+	}
 	.content_container {
 		padding: 20px 0px;
 	}

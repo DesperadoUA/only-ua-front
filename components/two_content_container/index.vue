@@ -1,5 +1,5 @@
 <template>
-	<div class="two_content_container">
+	<div class="two_content_container" :class="{ revers }">
 		<div class="left">
 			<slot name="left" />
 		</div>
@@ -10,7 +10,15 @@
 </template>
 <script>
 export default {
-	name: 'two_content_container'
+	name: 'two_content_container',
+	props: {
+		revers: {
+			type: Boolean,
+			default() {
+				return false
+			}
+		}
+	}
 }
 </script>
 <style scoped>
@@ -25,6 +33,9 @@ export default {
 	width: 368px;
 	max-width: 100%;
 	min-width: 368px;
+}
+.revers {
+	flex-direction: column-reverse;
 }
 @media (max-width: 767px) {
 	.two_content_container {

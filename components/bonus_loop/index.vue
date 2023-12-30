@@ -83,6 +83,9 @@ export default {
 	.items-more {
 		width: 100%;
 	}
+	.bonus_loop {
+		justify-content: center;
+	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {
 	.bonus_loop {

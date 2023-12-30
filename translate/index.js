@@ -626,6 +626,11 @@ export default {
         UA: 'Мова',
         EN: 'Language'
     },
+    SITE_LANG: {
+        RU: 'Язык сайта',
+        UA: 'Мова сайту',
+        EN: 'Site language'
+    },
     GAME_AVAILABLE_CASINOS: {
         RU: 'Эта игра доступна в этих казино',
         UA: 'Ця гра доступна в цих казино',
