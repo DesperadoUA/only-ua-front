@@ -27,7 +27,7 @@
 				<TwoContentContainer>
 					<template v-slot:left>
 						<AText tag="div" :attributes="mainContainerTitle">{{ t('ONLINE_CASINO') }}</AText>
-						<CasinoLoop :value="data.body.casino" />
+						<CasinoLoop :value="currentCasinos" />
 					</template>
 					<template v-slot:right>
 						<aside class="aside">
@@ -54,12 +54,13 @@ import BonusMainCard from '~/components/bonus_loop/cards/main'
 import Filters from '~/components/filters'
 import pageTemplate from '~/mixins/pageTemplate'
 import device from '~/mixins/device'
+import filterMixin from '~/mixins/filters'
 import helper from '~/helpers/helpers'
 import config from '~/config'
 
 export default {
 	name: 'main-page',
-	mixins: [pageTemplate, device],
+	mixins: [pageTemplate, device, filterMixin],
 	components: {
 		Slider,
 		TwoContentContainer,
@@ -136,7 +137,9 @@ export default {
 				width: '18px',
 				height: '18px',
 				class: 'arrow'
-			}
+			},
+			currentCasinos: [],
+			allCasinos: []
 		}
 	},
 	computed: {
@@ -155,6 +158,50 @@ export default {
 		data.body.headerLinks = helper.hreflang(data.body.hreflang)
 		//store.dispatch('options/setHrefLang', data.body.headerLinks)
 		return { data }
+	},
+	methods: {
+		filterCasinos(posts) {
+			const vendorsFilterValue = this.$route.query[this.vendorsFilterKey]
+			const vendorsFilterKey = vendorsFilterValue ? vendorsFilterValue.split(',') : []
+			const paymentsFilterValue = this.$route.query[this.paymentsFilterKey]
+			const paymentsFilterKey = paymentsFilterValue ? paymentsFilterValue.split(',') : []
+			const langsFilterValue = this.$route.query[this.langsFilterKey]
+			const langsFilterKey = langsFilterValue ? langsFilterValue.split(',') : []
+			const currencyFilterValue = this.$route.query[this.currencyFilterKey]
+			const currencyFilterKey = currencyFilterValue ? currencyFilterValue.split(',') : []
+			return posts.filter(item => {
+				let flag = true
+				vendorsFilterKey.forEach(vendorKey => {
+					const valueExist = item[this.vendorsFilterKey].some(vendorItem => vendorItem.title === vendorKey)
+					if (!valueExist) flag = false
+				})
+				paymentsFilterKey.forEach(paymentKey => {
+					const valueExist = item[this.paymentsFilterKey].some(paymentItem => paymentItem.title === paymentKey)
+					if (!valueExist) flag = false
+				})
+				langsFilterKey.forEach(langKey => {
+					const valueExist = item[this.langsFilterKey].some(langItem => langItem.title === langKey)
+					if (!valueExist) flag = false
+				})
+				currencyFilterKey.forEach(currencyKey => {
+					const valueExist = item[this.currencyFilterKey].some(currencyItem => currencyItem.title === currencyKey)
+					if (!valueExist) flag = false
+				})
+				return flag
+			})
+		}
+	},
+	mounted() {
+		this.currentCasinos = this.filterCasinos(this.data.body.casino)
+	},
+	watch: {
+		'$route.params.search': {
+			handler: function() {
+				this.currentCasinos = this.filterCasinos(this.data.body.casino)
+			},
+			deep: true,
+			immediate: true
+		}
 	}
 }
 </script>

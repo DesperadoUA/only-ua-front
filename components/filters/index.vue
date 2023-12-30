@@ -10,20 +10,26 @@
 			<div class="current_filters_clear" @click="clearGetParams">Clear All</div>
 		</div>
 		<div class="filters_container">
-			<FilterItem title="Провайдеры" src="/img/providers.png" :value="vendors" filterKey="vendors" />
-			<FilterItem title="Методи депозиту" src="/img/payment_icon.png" :value="payments" filterKey="payments" />
-			<FilterItem title="Мова сайту" src="/img/lang.png" :value="langs" filterKey="langs" />
-			<FilterItem title="Ігрові валюти" src="/img/game_currency.png" :value="currency" filterKey="currency" />
+			<FilterItem title="Провайдеры" src="/img/providers.png" :value="vendors" :filterKey="vendorsFilterKey" />
+			<FilterItem
+				title="Методи депозиту"
+				src="/img/payment_icon.png"
+				:value="payments"
+				:filterKey="paymentsFilterKey"
+			/>
+			<FilterItem title="Мова сайту" src="/img/lang.png" :value="langs" :filterKey="langsFilterKey" />
+			<FilterItem title="Ігрові валюти" src="/img/game_currency.png" :value="currency" :filterKey="currencyFilterKey" />
 		</div>
 	</div>
 </template>
 
 <script>
 import components from '~/mixins/components'
+import filterMixin from '~/mixins/filters'
 import FilterItem from './filterItem'
 export default {
 	name: 'filters',
-	mixins: [components],
+	mixins: [components, filterMixin],
 	components: { FilterItem },
 	data: () => {
 		return {
@@ -80,7 +86,7 @@ export default {
 				const filterKeys = Object.keys(this.$route.query)
 				if (filterKeys) {
 					filterKeys.forEach(key => {
-						const arr = this.$route.query[key].split(',')
+						const arr = this.$route.query[key] ? this.$route.query[key].split(',') : []
 						arr.forEach(item => {
 							if (item) filterList.push({ filterKey: key, value: item })
 						})
@@ -107,6 +113,7 @@ export default {
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
+	cursor: pointer;
 }
 .current_filters_clear,
 .current_filters_ttl {

@@ -4,7 +4,7 @@
 			<div class="filter_checkbox" :class="{ active: active }" />
 			{{ title }}
 		</div>
-		<div class="filter_item_row_right">
+		<div class="filter_item_row_right" v-if="false">
 			{{ total }}
 		</div>
 	</div>
@@ -73,6 +73,15 @@ export default {
 			},
 			deep: true,
 			immediate: true
+		}
+	},
+	mounted() {
+		const arr = this.$route.query[this.filterKey]
+		if (arr) {
+			const arrKeys = this.$route.query[this.filterKey].split(',')
+			if (arrKeys.length && arrKeys.includes(this.title)) {
+				this.active = true
+			}
 		}
 	}
 }
