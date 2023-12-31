@@ -1,11 +1,11 @@
 module.exports = {
 	apps: [
 	  {
-		name: 'front-casquad',
+		name: 'front-only-ua',
 		script: './node_modules/nuxt/bin/nuxt.js',
 		args: 'start',
 		env: {
-		  PORT: 7001
+		  PORT: 8000
 		}
 	  }
 	]

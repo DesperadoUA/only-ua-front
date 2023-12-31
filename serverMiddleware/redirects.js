@@ -6,7 +6,12 @@ module.exports = function(req, res, next) {
 	let url = req.url.split('?')[0]
 	let urlParams = null
 	if (host.startsWith('www.')) {
-		const to = 'https://' + 'casquad.lenddev.com.ua' + req.url
+		const to = 'https://' + 'only-ua.lenddev.com.ua' + req.url
+		res.writeHead(301, { Location: to })
+		res.end()
+	}
+	if (!req.url.endsWith('/')) {
+		const to = `${req.url}/`
 		res.writeHead(301, { Location: to })
 		res.end()
 	}

@@ -1,8 +1,8 @@
 export default {
     BASE_URL: {
-        UA: 'http://localhost:3000',
+        //UA: 'http://localhost:3000',
         RU: 'https://onlinecasino.kyiv.ua',
-        //UA: 'https://uk.onlinecasino.kyiv.ua'
+        UA: 'https://only-ua.lenddev.com.ua'
     },
     //BASE_URL: 'https://test.onlinecasino.kyiv.ua',
     //BASE_URL: 'http://localhost:3000',
@@ -18,6 +18,7 @@ export default {
     },
     API_URL: {
         RU: 'http://only-ua-api/wp-content/themes/api/app/',
-        UA: 'http://only-ua-api/wp-content/themes/api/app/'
+        //UA: 'http://only-ua-api/wp-content/themes/api/app/',
+        UA: 'https://media-only-ua.lenddev.com.ua/wp-content/themes/api/app/',
     }
 }

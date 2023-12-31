@@ -12,13 +12,7 @@
 			</div>
 		</div>
 		<div class="filter_item_body" v-if="open">
-			<FilterItemValue
-				v-for="item in value"
-				:key="item.title"
-				:title="item.title"
-				:total="item.total"
-				:filterKey="filterKey"
-			/>
+			<FilterItemValue v-for="item in value" :key="item.title" :title="item.title" :filterKey="filterKey" />
 		</div>
 	</div>
 </template>

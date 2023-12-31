@@ -1,12 +1,3 @@
-[] Добавить темплейт с хедером и футером принимающим в качестве слота компоненты темплейта
-[] Сделать ренейм названий файлов
-[] Fix status code
-[] Adaptive
-   [] Main
-   [x] Games
-   [x] Bonuses
-   [x] News
-   [x] Game Single
-   [x] Casino Single
-   [x] Vendor Single
-   [x] News Single
+[] Mobile menu
+[] Mobile search
+[] Filter settings by api

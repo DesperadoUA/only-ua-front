@@ -16,9 +16,11 @@
 		<div class="container" v-else>
 			<div class="header_mob_container">
 				<Logo v-if="getOptions" :src="getOptions.logo" />
-				<div class="burger" @click="mobMenuToggle"></div>
+				<div class="header_mob_container_right">
+					<Search />
+					<div class="burger" @click="mobMenuToggle"></div>
+				</div>
 			</div>
-			<div class="header_mob_search_container"></div>
 			<div class="header_mob_menu" :class="{ active: menuActive }">
 				<div class="header_mob_menu_wrapper">
 					<div class="mob_lang_container">
@@ -156,7 +158,11 @@ export default {
 	}
 	.mob_lang_container {
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-end;
+	}
+	.header_mob_container_right {
+		display: flex;
+		gap: 10px;
 	}
 }
 @media (min-width: 768px) and (max-width: 1200px) {

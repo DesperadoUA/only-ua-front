@@ -1,5 +1,5 @@
 <template>
-	<div class="filters">
+	<div class="filters" v-if="getOptions">
 		<div class="current_filters">
 			<div class="current_filters_ttl">Sorted by</div>
 			<div class="current_filters_container">
@@ -10,18 +10,28 @@
 			<div class="current_filters_clear" @click="clearGetParams">Clear All</div>
 		</div>
 		<div class="filters_container">
-			<FilterItem :title="t('VENDORS')" src="/img/providers.png" :value="vendors" :filterKey="vendorsFilterKey" />
+			<FilterItem
+				:title="t('VENDORS')"
+				src="/img/providers.png"
+				:value="getOptions.filters.vendors_filters"
+				:filterKey="vendorsFilterKey"
+			/>
 			<FilterItem
 				:title="t('DEPOSIT_METHODS')"
 				src="/img/payment_icon.png"
-				:value="payments"
+				:value="getOptions.filters.payments_filters"
 				:filterKey="paymentsFilterKey"
 			/>
-			<FilterItem :title="t('SITE_LANG')" src="/img/lang.png" :value="langs" :filterKey="langsFilterKey" />
+			<FilterItem
+				:title="t('SITE_LANG')"
+				src="/img/lang.png"
+				:value="getOptions.filters.languages_filters"
+				:filterKey="langsFilterKey"
+			/>
 			<FilterItem
 				:title="t('GAME_CURRENCY')"
 				src="/img/game_currency.png"
-				:value="currency"
+				:value="getOptions.filters.currency_filters"
 				:filterKey="currencyFilterKey"
 			/>
 		</div>
@@ -101,6 +111,11 @@ export default {
 			},
 			deep: true,
 			immediate: true
+		}
+	},
+	computed: {
+		getOptions() {
+			return this.$store.getters['options/getOptions']
 		}
 	}
 }

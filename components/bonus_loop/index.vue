@@ -62,7 +62,7 @@ export default {
 	margin-bottom: 30px;
 }
 .load_more {
-	border: 1px solid var(--cucuta);
+	border: 1px solid var(--cucuta) !important;
 	border-radius: 8px;
 }
 .items-more {

@@ -46,16 +46,11 @@
 						<aside class="aside">
 							<div class="aside_bonuses">
 								<AText tag="div" :attributes="asideContainerTitle">
-                                    {{ t('OTHER_BONUSES') }} {{ data.body.title }}
-                                </AText>
+									{{ t('OTHER_BONUSES') }} {{ data.body.title }}
+								</AText>
 								<div class="aside_bonus_container">
 									<div class="aside_bonus_wrapper" v-for="(item, index) in data.body.bonuses" :key="index">
-										<BonusAsideCard
-                                            :src="item.src"
-                                            :title="item.title"
-                                            :value="item.value"
-                                            :refLinks="item.ref"
-                                        />
+										<BonusAsideCard :src="item.src" :title="item.title" :value="item.value" :refLinks="item.ref" />
 									</div>
 								</div>
 							</div>
@@ -216,7 +211,7 @@ export default {
 		gap: 10px;
 	}
 	.casino_page {
-		padding-top: 150px;
+		padding-top: 100px;
 	}
 	.aside_bonus_wrapper {
 		width: 100%;
