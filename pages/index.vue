@@ -208,6 +208,7 @@ export default {
 .main_page {
 	background: url('/img/hero_img.webp') top center #f5f6fa no-repeat;
 	padding-top: 165px;
+	overflow: hidden;
 }
 .ttl_container {
 	max-width: 900px;
